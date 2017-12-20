@@ -1,0 +1,34 @@
+.btn {
+	min-width: 140px;
+	padding: 10px 20px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	border-radius: 0;
+
+	&-outline {
+		border: 1px solid;
+
+		&-orange {
+			border-color: rgb($orange);
+			color: rgb($orange);
+
+			&:hover {
+				color: rgb($orange);
+			}
+		}
+	}
+
+	&-solid {
+
+		&-orange {
+			background-color: rgb($orange);
+			color: rgb($blue_dark);
+
+			&:hover {
+				color: rgb($blue_dark);
+			}
+		}
+	}
+
+
+}

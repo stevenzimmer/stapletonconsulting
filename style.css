@@ -1,0 +1,26 @@
+/*
+
+Theme Name: Stapleton Consulting
+Author: Steven Zimmer
+Description: Theme for Stapleton Consulting
+Version: 1.0
+*/
+
+@import 'bootstrap';
+@import './build/css/_variables.css';
+@import './build/css/_mixins.css';
+@import './build/css/_margins.css';
+@import './build/css/_buttons.css';
+@import './build/css/_background.css';
+@import './build/css/_navigation.css';
+@import './build/css/_homepage.css';
+@import './build/css/_about.css';
+@import './build/css/_contact.css';
+@import './build/css/_archive-articles.css';
+@import './build/css/_archive-services.css';
+@import './build/css/_single-articles.css';
+@import './build/css/_single-services.css';
+@import './build/css/_footer.css';
+@import './build/css/_search.css';
+@import './build/css/_forms.css';
+@import './build/css/_style.css';

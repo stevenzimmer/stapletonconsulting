@@ -1,0 +1,9 @@
+.about {
+
+	&-hero {
+
+		h1 {
+			color: rgb($blue_dark);
+		}
+	}
+}

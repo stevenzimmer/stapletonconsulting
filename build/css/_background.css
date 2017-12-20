@@ -1,0 +1,30 @@
+.bg {
+	color: $white;
+
+	&-purple {
+		background-color: rgb($purple);
+	}
+
+	&-blue {
+
+		&-dark {
+			background-color: rgb($blue_dark);
+		}
+
+		&-light {
+			background-color: rgb($blue_light);
+		}
+	}
+
+	&-orange {
+		background-color: rgb($orange);
+
+		&-light {
+			background-color: rgb($orange_light);
+		}
+	}
+
+	&-grey {
+		background-color: rgb($grey);
+	}
+}

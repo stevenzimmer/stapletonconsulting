@@ -1,0 +1,64 @@
+
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.position {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.hero {
+
+	h1 {
+		font-size: 50px;
+		font-weight: 300;
+		margin-top: 0;
+	}
+
+	p {
+		font-size: 16px;
+		line-height: 32px;
+	}
+}
+
+.section {
+	padding: 80px 0;
+
+	&-half {
+		padding: 40px 0;
+	}
+}
+
+h1,h2,h3,p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h3 {
+	color: $black;
+	font-size: 18px;
+}
+
+.page-hero {
+	padding: 200px 0;
+
+	h1 {
+		font-size: 55px;
+	}
+}
+
+.container {
+	padding: 0 15px;
+
+	@mixin min1200 {
+		width: 1040px;
+	}
+}

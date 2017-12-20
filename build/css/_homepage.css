@@ -1,0 +1,103 @@
+.home {
+
+	&-hero {
+		padding: 180px 0;
+
+		&-bg {
+			background-image: url(/wp-content/uploads/theme-graphics/home-hero-bg.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+	}
+}
+
+.services {
+
+	&-left {
+		padding: 120px 0;
+		height: 506px;
+
+		&-bg {
+			background-image: url(/wp-content/uploads/theme-graphics/services-left-bg.jpg);
+			background-size: cover;
+		}
+
+		h3 {
+			font-size: 40px;
+			color: $white;
+		}
+
+		p {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+
+	&-item {
+		height: 253px;
+		display: table;
+		width: 100%;
+
+		&-inner {
+			vertical-align: middle;
+			display: table-cell;
+			transition: opacity .3s ease-in-out;
+		}
+
+		&-overlay {
+			background-color: rgba($orange, .55);
+			opacity: 0;
+			transition: opacity .3s ease-in-out;
+		}
+
+		&:hover {
+
+			.services {
+
+				&-item {
+
+					&-inner {
+						opacity: 0;
+					}
+
+					&-overlay {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+.specs {
+
+	&-box {
+
+		p {
+			font-size: 55px;
+			line-height: 50px;
+		}
+
+		span {
+			letter-spacing: 2px;
+			text-transform: uppercase;
+		}
+
+	}
+}
+
+.quote {
+
+	&-text {
+		color: rgb($blue_light);
+		line-height: 24px;
+	}
+
+	&-citation {
+		opacity: .6;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+}

@@ -1,0 +1,76 @@
+.live-search {
+	overflow-y: auto;
+	overflow-x: hidden;
+	z-index: 110;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba($blue_dark, .96);
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(1.09);
+	transition: opacity .3s, transform .3s, visibility .3s;
+	box-sizing: border-box;
+
+	&-active {
+		visibility: visible;
+	    opacity: 1;
+	    transform: scale(1);
+	}
+
+	&__top {
+		background-color: rgba($grey, .12);
+	}
+
+	&__icon {
+		margin-right: 10px;
+		font-size: 1.8rem;
+		color: $orange;
+
+		@mixin min768 {
+			font-size: 2.5rem;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 13px;
+		right: 16px;
+		font-size: 2.1rem;
+		cursor: pointer;
+		transition: all .3s;
+		background-color: #FFF;
+		color: $orange;
+		line-height: .7;
+
+		@mixin min480 {
+			top: 18px;
+			font-size: 2.1rem;
+		}
+
+		@mixin min768 {
+			top: 26px;
+			font-size: 2.8rem;
+		}
+	}
+}
+
+.search-term {
+  width: 75%;
+  box-sizing: border-box;
+  border: none;
+  padding: 15px 0;
+  margin: 0;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 300;
+  outline: none;
+  color: $orange;
+
+	@mixin min768 {
+		width: 80%;
+		font-size: 3rem;
+	}
+}
