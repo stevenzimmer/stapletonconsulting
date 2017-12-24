@@ -93,8 +93,7 @@
 						font-weight: 300;
 						padding-bottom: 10px;
 
-						&:hover {
-							border-bottom: 2px solid rgb($orange);
+						&:hover,&:focus {
 							color: $white;
 						}
 
@@ -121,6 +120,8 @@
 				&-search {
 					color: $white;
 					cursor: pointer;
+					top: 6px;
+					font-size: 20px;
 				}
 			}
 
@@ -137,31 +138,35 @@
 				top: 30px;
 				left: 0;
 				width: 100%;
-				background-color: rgba($blue_dark, .75);
+				background-color: rgba($blue_dark, .96);
 				z-index: 10;
 				border: none;
 				box-shadow: none;
 				padding: 0 40px;
 				height: 1000px!important;
 				opacity: 0;
-				transition: opacity .3s ease-in-out;
+				visibility: hidden;
+				opacity: 0;
+				transform: scale(1.09);
+				transition: opacity .3s, transform .3s, visibility .3s;
+				box-sizing: border-box;
 
-				&.collapsing {
-					display: inline-flex;
-				}
-
-				&.in {
+				&.collapsing, &.in {
 					display: inline-flex;
 				}
 
 				&.fade_in {
-					opacity: 1;
+					visibility: visible;
+				    opacity: 1;
+				    transform: scale(1);
 				}
 
 				@mixin min768 {
 					position: relative;
 					top: 0;
 					background-color: transparent;
+					visibility: visible;
+					transform:scale(1);
 					opacity: 1;
 					height: auto!important;
 					padding: 5px;
@@ -177,6 +182,55 @@
 			@mixin min768 {
 				border-bottom: 1px solid rgba($grey, .2);
 			}
+		}
+	}
+}
+
+.hover_nav {
+
+	> a {
+		position: relative;
+		text-decoration: none;
+		color: $white;
+
+		&:hover {
+			color: $white;
+
+			&:before {
+				visibility: visible;
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+		}
+
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background-color: rgb($orange);
+			visibility: hidden;
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+			-webkit-transition: all 0.2s ease-in-out 0s;
+	  		transition: all 0.2s ease-in-out 0s;
+		}
+	}
+
+	&.current-menu-item {
+
+		> a {
+			border-bottom: 2px solid rgb($orange);
+
+			&:hover {
+
+				&:before {
+					visibility: hidden;
+					transform: scaleX(0);
+				}
+			};
 		}
 	}
 }

@@ -14,6 +14,15 @@
 	transition: opacity .3s, transform .3s, visibility .3s;
 	box-sizing: border-box;
 
+
+	&-container {
+		top: 20px;
+
+		p {
+			color: $white;
+		}
+	}
+
 	&-active {
 		visibility: visible;
 	    opacity: 1;
@@ -21,13 +30,14 @@
 	}
 
 	&__top {
-		background-color: rgba($grey, .12);
+		border-bottom: 1px solid rgb($orange);
 	}
 
 	&__icon {
 		margin-right: 10px;
 		font-size: 1.8rem;
-		color: $orange;
+		color: rgb($orange);
+		top: 24px;
 
 		@mixin min768 {
 			font-size: 2.5rem;
@@ -35,42 +45,123 @@
 	}
 
 	&__close {
-		position: absolute;
-		top: 13px;
-		right: 16px;
+		top: 26px;
+		right: 20px;
 		font-size: 2.1rem;
 		cursor: pointer;
 		transition: all .3s;
-		background-color: #FFF;
-		color: $orange;
+		color: rgb($orange);
 		line-height: .7;
 
 		@mixin min480 {
-			top: 18px;
 			font-size: 2.1rem;
 		}
 
 		@mixin min768 {
-			top: 26px;
 			font-size: 2.8rem;
 		}
+
+		&:hover {
+			opacity: 1;
+		}
 	}
+
+	&__section-title {
+	    margin: 30px 0 1px 0;
+	    font-weight: 400;
+	    color: rgb($blue_light);
+	    font-size: 2rem;
+	    padding: 15px 0;
+	    border-bottom: 1px solid #CCC;
+  	}
 }
 
 .search-term {
-  width: 75%;
   box-sizing: border-box;
   border: none;
   padding: 15px 0;
   margin: 0;
   background-color: transparent;
-  font-size: 1rem;
+  font-size: 24px;
   font-weight: 300;
   outline: none;
-  color: $orange;
+  color: rgb($orange);
+  width: 100%;
 
 	@mixin min768 {
-		width: 80%;
 		font-size: 3rem;
 	}
+}
+
+
+.link-list {
+
+	a {
+		color: $white;
+		display: block;
+		margin-bottom: 10px;
+		text-decoration: none;
+
+		&:hover {
+			color: rgb($orange);
+		}
+	}
+
+	&-item {
+		padding: 2rem 0;
+		font-size: 2rem;
+		border-bottom: 1px solid #000;
+
+		&-type {
+			text-transform: uppercase;
+		}
+
+		.search-overlay & {
+			font-size: 1.3rem;
+		}
+	}
+
+	&-arrow {
+		right: 0;
+		top: 40px;
+
+		.glyphicon {
+			color: rgb($orange);
+		}
+	}
+}
+
+.min-list {
+	padding: 0;
+	margin: 0;
+
+	li {
+	  	list-style: none;
+	}
+}
+
+.body-no-scroll {
+  overflow: hidden;
+}
+
+.spinner-loader {
+  margin-top: 45px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 0.25rem solid rgba($orange, 0.2);
+  border-top-color: rgb($orange);
+  -webkit-animation: spin 1s infinite linear;
+          animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }

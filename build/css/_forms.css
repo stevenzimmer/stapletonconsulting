@@ -5,9 +5,9 @@
 
 	input,textarea {
 		border-radius: 2;
-		background-color: rgb($blue_dark);
+		background-color: rgb($blue_mid);
 		color: $white;
-		border-color: rgb($blue_dark);
+		border-color: rgb($blue_mid);
 
 		&::placeholder {
 			color: $grey_light;

@@ -30,7 +30,7 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-5">
-				<img class="img-responsive" src="/wp-content/uploads/theme-graphics/michael_stapleton.png">
+				<img alt="Michael Stapleton, CEO" class="img-responsive" src="/wp-content/uploads/theme-graphics/michael_stapleton.png">
 			</div>
 			<div class="col-sm-7">
 				<h2 class="mb40">About Michael Stapleton, CEO &amp; Founder</h2>
@@ -60,7 +60,7 @@ get_header();
 				</p>
 			</div>
 			<div class="col-sm-5">
-				<img class="img-responsive" src="/wp-content/uploads/theme-graphics/darby_williams.png">
+				<img alt="Darby Williams headshot" class="img-responsive" src="/wp-content/uploads/theme-graphics/darby_williams.png">
 			</div>
 		</div>
 		<div class="row section">
@@ -80,7 +80,7 @@ get_header();
 				</p>
 			</div>
 			<div class="col-sm-5 col-sm-pull-7">
-				<img class="img-responsive" src="/wp-content/uploads/theme-graphics/ryan_helmstetler.jpg">
+				<img alt="Ryan Helmstetler headshot" class="img-responsive" src="/wp-content/uploads/theme-graphics/ryan_helmstetler.jpg">
 			</div>
 		</div>
 	</div>

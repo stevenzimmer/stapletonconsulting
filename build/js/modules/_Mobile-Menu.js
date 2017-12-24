@@ -13,6 +13,11 @@ class Mobile_Menu {
 	toggle_menu() {
 		this.menu_icon.toggleClass('active');
 		this.mobile_menu.toggleClass('fade_in');
+		if ( this.menu_icon.hasClass('active')) {
+			$('body').addClass('body-no-scroll');
+		} else {
+			$('body').removeClass('body-no-scroll');
+		}
 	}
 }
 

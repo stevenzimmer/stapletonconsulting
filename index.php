@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 <header class="bg bg-blue-dark hero home-hero relative">
-	<div class="absolute position home-hero-bg"></div>
+	<div class="absolute position home-hero-bg parallax"></div>
 	<div class="container relative">
 		<div class="row">
-			<div class="col-md-5 col-sm-6">
+			<div class="col-md-5 col-md-offset-1 col-sm-6 col-sm-offset-0">
 				<div class="hero-inner">
 					<h1 class="mb40">Welcome</h1>
 					<p class="mb40">
@@ -12,7 +12,7 @@
 					<table width="100%">
 						<tr>
 							<td>
-								<a href="#" class="btn btn-outline btn-outline-orange">
+								<a href="#contact" class="btn btn-outline btn-outline-orange">
 									Get started
 								</a>
 							</td>
@@ -29,54 +29,91 @@
 	</div>
 </header>
 
-<section class="section">
+<section class="section pillars">
 	<div class="container text-center">
-		<h2 class="mb40">
+		<h2 class="mb20">
 			Pillars to Success
 		</h2>
+		<p class="mb40">This is placeholder copy as a descriptive subhead to the title above.</p>
 		<div class="row">
+			<?php
+
+				$pillars = array(
+					array(
+						'key',
+						'Industry Experience',
+						'Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet'
+					),
+					array(
+						'lightbulb',
+						'Creative Ideas',
+						'Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet'
+					),
+					array(
+						'bolt',
+						'Fast &amp; Efficient',
+						'Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet'
+					),
+					array(
+						'diamond',
+						'Proven Results',
+						'Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet'
+					)
+
+				);
+
+				foreach ( $pillars as $pillar ) :
+
+					$icon = $pillar[0];
+					$title = $pillar[1];
+					$paragraph = $pillar[2];
+			?>
+
 			<div class="col-sm-3 col-xs-6">
-				<img class="mb20" width="39" src="/wp-content/uploads/theme-graphics/key_icon_yellow.png">
-				<h3 class="mb20">Industry Experience</h3>
-				<p>Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet</p>
+				<div class="pillars-item mb40">
+					<img alt="<?php echo $title; ?> icon" class="mb20" height="39" src="/wp-content/uploads/theme-graphics/<?php echo $icon; ?>_icon_yellow.png">
+					<h3 class="mb20"><?php echo $title; ?></h3>
+					<p><?php echo $paragraph; ?></p>
+				</div>
 			</div>
-			<div class="col-sm-3 col-xs-6">
-				<img class="mb20" width="25" src="/wp-content/uploads/theme-graphics/lightbulb_icon_yellow.png">
-				<h3 class="mb20">Creative Ideas</h3>
-				<p>Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet</p>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<img class="mb20" width="25" src="/wp-content/uploads/theme-graphics/bolt_icon_yellow.png">
-				<h3 class="mb20">Fast &amp; Efficient</h3>
-				<p>Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet</p>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<img class="mb20" width="47" src="/wp-content/uploads/theme-graphics/diamond_icon_yellow.png">
-				<h3 class="mb20">Proven Results</h3>
-				<p>Praesent ac tellus id arcu facilisis feugiat vitae in diam. Pellentesque vel laoreet</p>
-			</div>
+
+			<?php
+				endforeach;
+			?>
 		</div>
 	</div>
 </section>
 
-<section class="section bg bg-blue-light">
+<section class="section bg bg-blue-light clients">
 	<div class="container text-center">
-		<h2 class="mb40">Some of our clients</h2>
+		<h2 class="mb40">
+			Some of our clients
+		</h2>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
 				<div class="row">
-					<div class="col-sm-3">
-						<img class="mb40" width="101" src="/wp-content/uploads/theme-graphics/apple_logo_white.png">
+
+				<?php
+					$clients = array(
+							'apple',
+							'nike',
+							'google',
+							'twitter'
+					);
+
+					foreach ( $clients as $client ) :
+				?>
+
+				<div class="col-sm-3 col-xs-6">
+					<div class="mb40">
+						<img alt="<?php echo $client ?> logo" class="mb40" height="80" src="/wp-content/uploads/theme-graphics/<?php echo $client ?>_logo_white.png">
 					</div>
-					<div class="col-sm-3">
-						<img class="mb40" width="195" src="/wp-content/uploads/theme-graphics/nike_logo_white.png">
-					</div>
-					<div class="col-sm-3">
-						<img class="mb40" width="105" src="/wp-content/uploads/theme-graphics/google_logo_white.png">
-					</div>
-					<div class="col-sm-3">
-						<img class="mb40" width="126" src="/wp-content/uploads/theme-graphics/twitter_logo_white.png">
-					</div>
+
+				</div>
+
+				<?php
+					endforeach;
+				?>
 
 				</div>
 			</div>
@@ -115,20 +152,23 @@
 			?>
 			<div class="col-md-4">
 				<div class="row">
-					<div class="services-item">
-						<div class="services-item-inner relative">
-							<img class="mb20" height="109" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_yellow.png">
-							<h3><?php the_title(); ?></h3>
-						</div>
-						<div class="services-item-overlay absolute position section-half">
-							<div class="col-sm-10 col-sm-offset-1">
-								<h3 class="mb20"><?php the_title() ?></h3>
-								<p>Bacon ipsum dolor amet picanha pork chop alcatra jowl frankfurter andouille pork belly bacon landjaeger tongue short loin sausage strip steak rump.</p>
+					<a href="<?php the_permalink(); ?>">
+						<div class="services-item">
+
+							<div class="services-item-inner relative">
+								<img alt="<?php echo $services_icon ?> icon" class="mb20" height="109" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_yellow.png">
+								<h3><?php the_title(); ?></h3>
+							</div>
+							<div class="services-item-overlay absolute position section-half">
+								<div class="col-sm-10 col-sm-offset-1">
+									<h3 class="mb20"><?php the_title() ?></h3>
+									<p>Bacon ipsum dolor amet picanha pork chop alcatra jowl frankfurter andouille pork belly bacon landjaeger tongue short loin sausage strip steak rump.</p>
+								</div>
+
 							</div>
 
 						</div>
-
-					</div>
+					</a>
 				</div>
 			</div>
 			<?php
@@ -147,31 +187,57 @@
 	</div>
 </section>
 
-<section class="section">
+<section class="section process">
 	<div class="container text-center">
 		<h2 class="mb40">Our Process</h2>
 		<p class="mb40">
-			We follow this stradegy to work on each & every project, it brings success
+			We follow this strategy to work on each &amp; every project, it brings success
 		</p>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
 				<div class="row">
+
+				<?php
+					$processes = array(
+
+						array(
+							'eye',
+							'analysis'
+						),
+
+						array(
+							'wheel',
+							'planning'
+						),
+
+						array(
+							'lightbulb',
+							'strategy'
+						),
+
+						array(
+							'trophy',
+							'execution'
+						)
+
+					);
+
+					foreach ( $processes as $process ) :
+
+						$icon = $process[0];
+						$title = $process[1];
+				?>
+
 					<div class="col-sm-3 col-xs-6">
-						<img class="mb20" width="105" src="/wp-content/uploads/theme-graphics/eye_icon.png">
-						<p>ANALYSIS</p>
+						<div class="process-item mb40">
+							<img alt="<?php echo $title ?> icon" class="mb20" height="70" src="/wp-content/uploads/theme-graphics/<?php echo $icon ?>_icon.png">
+							<p><?php echo $title; ?></p>
+						</div>
 					</div>
-					<div class="col-sm-3 col-xs-6">
-						<img class="mb20" width="60" src="/wp-content/uploads/theme-graphics/wheel_icon.png">
-						<p>ANALYSIS</p>
-					</div>
-					<div class="col-sm-3 col-xs-6">
-						<img class="mb20" width="60" src="/wp-content/uploads/theme-graphics/lightbulb_icon.png">
-						<p>STRATEGY</p>
-					</div>
-					<div class="col-sm-3 col-xs-6">
-						<img class="mb20" width="50" src="/wp-content/uploads/theme-graphics/trophy_icon.png">
-						<p>EXECUTION</p>
-					</div>
+
+				<?php
+					endforeach;
+				?>
 				</div>
 			</div>
 		</div>
@@ -181,127 +247,174 @@
 <section class="specs">
 	<div class="container-fluid">
 		<div class="row">
+
+		<?php
+			$specs = array(
+				array(
+					20,
+					'purple',
+					'clients'
+				),
+				array(
+					500,
+					'blue-dark',
+					'projects'
+				),
+				array(
+					99,
+					'blue-light',
+					'features'
+				),
+				array(
+					1039,
+					'orange',
+					'average'
+				),
+				array(
+					320,
+					'orange-light',
+					'campaigns'
+				),
+				array(
+					9,
+					'grey',
+					'employees'
+				)
+			);
+
+			foreach ( $specs as $spec ) :
+				$number = $spec[0];
+				$bg = $spec[1];
+				$title = $spec[2];
+		?>
 			<div class="col-md-2 col-sm-4 col-xs-6">
 				<div class="row">
-					<div class="specs-box text-center bg bg-purple section-half">
-						<p class="mb20">20</p>
-						<span>Clients</span>
+					<div class="specs-box text-center bg bg-<?php echo $bg ?> section-half">
+						<p class="mb20"><?php echo $number ?></p>
+						<span><?php echo $title; ?></span>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2 col-sm-4 col-xs-6">
-				<div class="row">
-					<div class="specs-box text-center bg bg-blue-dark section-half">
-						<p class="mb20">500</p>
-						<span>PROJECTS</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-4 col-xs-6">
-				<div class="row">
-					<div class="specs-box text-center bg bg-blue-light section-half">
-						<p class="mb20">99</p>
-						<span>FEATURES</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-4 col-xs-6">
-				<div class="row">
-					<div class="specs-box text-center bg bg-orange section-half">
-						<p class="mb20">1039</p>
-						<span>AVERAGE</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-4 col-xs-6">
-				<div class="row">
-					<div class="specs-box text-center bg bg-orange-light section-half">
-						<p class="mb20">320</p>
-						<span>CAMPAIGNS</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-4 col-xs-6">
-				<div class="row">
-					<div class="specs-box text-center bg bg-grey section-half">
-						<p class="mb20">9</p>
-						<span>EMPLOYEES</span>
-					</div>
-				</div>
-			</div>
+
+		<?php
+			endforeach;
+		?>
 		</div>
 	</div>
-
 </section>
 <section class="section quote">
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
-				<div class="row text-center mb40">
-					<div class="col-sm-8 col-sm-offset-2">
-						<div class="quote-text mb40">
-							<span>"</span>
-							<p>
-								Cras ac dapibus nisl, at vulputate elit. Mauris a efficitur lectus, eget mattis enim. Maecenas purus felis, convallis eget elementum sit amet, interdum a eros. Fusce tempus urna sed enim gravida, quis tempor diam vulputate.
-							</p>
-						</div>
+		<div id="quote-carousel" class="carousel quote-carousel" data-ride="carousel">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div class="quote-symbol text-center">
+						<span>"</span>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="row quote-citation mb40">
-							<div class="col-sm-4 col-xs-5">
-								<div class="row">
-									<img class="img-responsive center-block" src="http://via.placeholder.com/50x50">
-								</div>
-							</div>
-							<div class="col-sm-8 col-xs-7">
-								<div class="row">
-									<p>John Doe</p>
-									<span>Impressive Title</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="row quote-citation active mb40">
-							<div class="col-sm-4 col-xs-5">
-								<div class="row">
-									<img class="img-responsive center-block" src="http://via.placeholder.com/50x50">
-								</div>
-							</div>
-							<div class="col-sm-8 col-xs-7">
-								<div class="row">
-									<p>John Doe</p>
-									<span>Impressive Title</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="row quote-citation mb40">
-							<div class="col-sm-4 col-xs-5">
-								<div class="row">
-									<img class="img-responsive center-block" src="http://via.placeholder.com/50x50">
-								</div>
-							</div>
-							<div class="col-sm-8 col-xs-7">
-								<div class="row">
-									<p>John Doe</p>
-									<span>Impressive Title</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
+					<div class="row mb40">
+						<div class="col-sm-10 col-sm-offset-1">
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner text-center" role="listbox">
+
+							<?php
+								$i = 0;
+
+								$quotes = array(
+									array(
+										'Cras ac dapibus nisl, at vulputate elit. Mauris a efficitur lectus, eget mattis enim. Maecenas purus felis, convallis eget elementum sit amet, interdum a eros. Fusce tempus urna sed enim gravida, quis tempor diam vulputate.'
+									),
+									array(
+										'Nope ac dapibus nisl, at vulputate elit. Mauris a efficitur lectus, eget mattis enim. Maecenas purus felis, convallis eget elementum sit amet, interdum a eros. Fusce tempus urna sed enim gravida, quis tempor diam vulputate.'
+									),
+									array(
+										'Yup ac dapibus nisl, at vulputate elit. Mauris a efficitur lectus, eget mattis enim. Maecenas purus felis, convallis eget elementum sit amet, interdum a eros. Fusce tempus urna sed enim gravida, quis tempor diam vulputate.'
+									)
+								);
+
+								foreach ( $quotes as $quote ) :
+							?>
+
+								<div class="item <?php if ($i == 0) : echo 'active'; endif; ?>">
+									<div class="quote-text mb40">
+										<p>
+											<?php echo $quote[0]; ?>
+										</p>
+									</div>
+								</div>
+
+							<?php
+								$i++;
+								endforeach;
+							?>
+							</div>
+						</div>
+					</div>
+
+					<!-- Indicators -->
+					<div class="carousel-indicators quote-carousel-indicators">
+
+						<?php
+
+							$i = 0;
+							$indicators = array(
+
+								array(
+									'http://via.placeholder.com/50x50',
+									'John Doe',
+									'Impressive Title'
+								),
+								array(
+									'http://via.placeholder.com/50x50',
+									'John Doe',
+									'Impressive Title'
+								),
+								array(
+									'http://via.placeholder.com/50x50',
+									'John Doe',
+									'Impressive Title'
+								),
+							);
+
+							foreach ( $indicators as $indicator ) :
+								$thumbnail = $indicator[0];
+								$name = $indicator[1];
+								$title = $indicator[2];
+						?>
+						<div class="<?php if ($i == 0) : echo 'active'; endif;?>">
+							<div class="col-sm-4">
+								<div class="row">
+									<div data-target="#quote-carousel" data-slide-to="<?php echo $i ?>">
+										<div class="quote-citation mb40">
+											<div class="col-sm-4 col-xs-3">
+												<div class="row">
+													<img alt="<?php echo $name ?> thumbnail" class="img-responsive center-block" src="<?php echo $thumbnail; ?>">
+												</div>
+											</div>
+											<div class="col-sm-8 col-xs-7">
+												<div class="row">
+													<p><?php echo $name; ?></p>
+													<span><?php echo $title; ?></span>
+												</div>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<?php
+							$i++;
+							endforeach;
+						?>
+					</div>
+				</div>
 			</div>
-
 		</div>
 	</div>
 </section>
 
-<section class="section bg bg-blue-light contact-form">
+<section class="section bg bg-blue-light contact-form" id="contact">
 	<div class="container">
 		<div class="col-sm-10 col-sm-offset-1">
 			<div class="row">
@@ -310,6 +423,7 @@
 					We’d love to hear from you. Fill out the form below and we'll reach out to dig deeper into your product marketing challenges. We offer free consultations to see if it makes sense for us to work together. Send us your question or thoughts and we’ll get back to you within 24 hours.
 				</p>
 			</div>
+
 			<div class="row">
 				<form class="form-horizontal sc-form">
 					<div class="col-sm-4">
@@ -355,13 +469,9 @@
 						</div>
 					</div>
 					<div class="clearfix"></div>
-
 				</form>
 			</div>
-
 		</div>
-
-
 	</div>
 </section>
 <?php get_footer(); ?>

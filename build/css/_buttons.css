@@ -12,8 +12,9 @@
 			border-color: rgb($orange);
 			color: rgb($orange);
 
-			&:hover {
-				color: rgb($orange);
+			&:hover,&:focus {
+				color: rgb($blue_dark);
+				background-color: rgb($orange);
 			}
 		}
 	}
@@ -24,8 +25,9 @@
 			background-color: rgb($orange);
 			color: rgb($blue_dark);
 
-			&:hover {
+			&:hover,&:focus {
 				color: rgb($blue_dark);
+				background-color: rgba($orange,.8);
 			}
 		}
 	}

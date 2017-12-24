@@ -1,4 +1,11 @@
-
+body {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
 
 .relative {
 	position: relative;
@@ -47,6 +54,10 @@ h3 {
 	font-size: 18px;
 }
 
+a {
+	transition: all .3s ease-in-out;
+}
+
 .page-hero {
 	padding: 200px 0;
 
@@ -61,4 +72,9 @@ h3 {
 	@mixin min1200 {
 		width: 1040px;
 	}
+}
+
+.parallax {
+	background-position: 50% 0;
+	background-repeat: repeat;
 }

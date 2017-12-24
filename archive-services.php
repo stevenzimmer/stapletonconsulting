@@ -34,7 +34,6 @@ get_header();
 				Our full list of services shows exactly how we can help.
 			</p>
 			</div>
-
 		</div>
 	</div>
 </section>
@@ -60,7 +59,7 @@ get_header();
 
 			<div class="col-sm-4">
 				<div class="mb40">
-					<img class="mb20" height="120" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_navy.png">
+					<img alt="<?php echo $services_title_lowercase ?> icon" class="mb20" height="120" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_navy.png">
 					<h3><?php the_title(); ?></h3>
 				</div>
 

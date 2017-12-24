@@ -29,23 +29,28 @@
 				<div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-7 col-xs-offset-1">
 					<div class="navbar-logo">
 						<a href="/">
-							<img class="img-responsive" src="/wp-content/uploads/theme-graphics/sc_logo.png">
+							<img alt="Stapleton Consulting Logo" class="img-responsive" src="/wp-content/uploads/theme-graphics/sc_logo.png">
 						</a>
 					</div>
 				</div>
 				<div class="col-md-8 col-sm-8 col-xs-0">
 					<div class="collapse navbar-collapse" id="sc-navbar">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-							<li><a href="/about-us">About Us</a></li>
-							<li><a href="/articles">Articles</a></li>
-							<li><a href="/services">Services</a></li>
-							<li><a href="/contact-us">Contact</a></li>
-						</ul>
+						<?php // Primary navigation menu
+							wp_nav_menu(
+								array(
+									'theme_location' 	=> 'primary',
+									'menu'				=> 'Primary',
+									'container'			=> false,
+									'menu_class'		=> 'nav navbar-nav navbar-right',
+									'echo'				=> true,
+									'fallback_cb'		=> false
+								)
+							);
+						?>
 					</div><!-- /.navbar-collapse -->
 				</div>
 				<div class="col-md-1 col-md-offset-0 col-sm-1 col-sm-offset-0 col-xs-1 col-xs-offset-1">
-					<div class="navbar-nav-search">
+					<div class="navbar-nav-search relative">
 						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 					</div>
 				</div>

@@ -26,15 +26,27 @@
 			<div class="col-sm-4">
 				<h3 class="mb40">COMPANY</h3>
 				<ul class="mb40">
+
+					<?php
+						$pages = new WP_Query( array(
+
+								'post_type' => 'page',
+								'posts_per_page' => -1
+							)
+						);
+
+						while ( $pages->have_posts()) :
+							$pages->the_post();
+					?>
 					<li>
-						Our Mission
+						<a href="<?php the_permalink() ?>">
+							<?php the_title(); ?>
+						</a>
 					</li>
-					<li>
-						About
-					</li>
-					<li>
-						Contact
-					</li>
+					<?php
+						endwhile;
+						wp_reset_postdata();
+					?>
 				</ul>
 			</div>
 			<div class="col-sm-4">
@@ -62,21 +74,13 @@
 		</div>
 		<div class="row text-center">
 			<p>
-				Copyright &copy; 2018 Stapleton Consulting All rights Reserved
+				Copyright &copy; <?php echo date('Y'); ?> Stapleton Consulting All rights Reserved
 			</p>
 		</div>
 
 	</div>
 </footer>
-<div class="live-search">
-	<div class="live-search__top">
-		<div class="container">
-			<span class="glyphicon glyphicon-search live-search__icon" aria-hidden="true"></span>
-			<input type="text" class="search-term" placeholder="What are you looking for?" id="search-term">
-			<span class="glyphicon glyphicon-remove live-search__close" aria-hidden="true"></span>
-		</div>
-	</div>
-</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>

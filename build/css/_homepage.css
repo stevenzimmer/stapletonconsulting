@@ -6,8 +6,18 @@
 		&-bg {
 			background-image: url(/wp-content/uploads/theme-graphics/home-hero-bg.jpg);
 			background-size: cover;
-			background-repeat: no-repeat;
 		}
+	}
+}
+
+.pillars {
+
+	h2 {
+		color: rgb($blue_light);
+	}
+
+	p {
+		color: rgb($grey_light);
 	}
 }
 
@@ -69,6 +79,20 @@
 	}
 }
 
+.process {
+
+	h2 {
+		color: rgb($blue_light);
+	}
+
+	&-item {
+
+		p {
+			text-transform: uppercase;
+		}
+	}
+}
+
 .specs {
 
 	&-box {
@@ -89,15 +113,48 @@
 .quote {
 
 	&-text {
-		color: rgb($blue_light);
+		color: rgba($blue_light,.8);
 		line-height: 24px;
 	}
 
 	&-citation {
+		cursor: pointer;
 		opacity: .6;
+		transition: opacity .3s ease-in-out;
 
-		&.active {
+		&:hover {
 			opacity: 1;
+		}
+	}
+
+	&-symbol {
+		color: rgba($blue_light,.8);
+		font-size: 100px;
+		line-height: 40px;
+	}
+
+	&-carousel {
+
+		&-indicators {
+			width: 100%;
+			position: relative;
+			bottom: 0;
+			left: 0;
+			margin: 0;
+			width: 100%;
+			text-align: left;
+
+			.active {
+				width:inherit;
+				height: inherit;
+
+				.quote {
+
+					&-citation {
+						opacity: 1;
+					}
+				}
+			}
 		}
 	}
 }
