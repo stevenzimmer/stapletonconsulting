@@ -14,6 +14,7 @@
 
 		wp_localize_script('scripts', 'sc_data', array(
 				'root_url' => get_site_url(),
+				'theme_folder' => get_template_directory_uri()
 			)
 		);
 	}

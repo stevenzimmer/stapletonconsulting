@@ -1,4 +1,3 @@
-
 class Search {
 
 	// Describe and create object

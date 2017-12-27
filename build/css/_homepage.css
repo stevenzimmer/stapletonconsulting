@@ -58,6 +58,32 @@
 			background-color: rgba($orange, .55);
 			opacity: 0;
 			transition: opacity .3s ease-in-out;
+
+			p {
+				color: $white;
+			}
+
+			&-bg {
+				background-image: url(/wp-content/uploads/theme-graphics/services-overlay-bg.jpg);
+				background-size: cover;
+				background-position: bottom;
+				opacity: 0;
+			}
+
+			&-wrapper {
+				height: 173px;
+
+				&-title {
+
+				}
+
+				&-excerpt {
+				}
+
+				&-arrow {
+					bottom: 0;
+				}
+			}
 		}
 
 		&:hover {
@@ -72,6 +98,10 @@
 
 					&-overlay {
 						opacity: 1;
+
+						&-bg {
+							opacity: 1;
+						}
 					}
 				}
 			}

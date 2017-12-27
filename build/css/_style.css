@@ -22,6 +22,10 @@ body {
 	left: 0;
 }
 
+.full-width {
+	width: 100%;
+}
+
 .hero {
 
 	h1 {

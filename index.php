@@ -154,19 +154,26 @@
 				<div class="row">
 					<a href="<?php the_permalink(); ?>">
 						<div class="services-item">
-
 							<div class="services-item-inner relative">
 								<img alt="<?php echo $services_icon ?> icon" class="mb20" height="109" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_yellow.png">
 								<h3><?php the_title(); ?></h3>
 							</div>
+							<div class="services-item-overlay-bg position absolute"></div>
 							<div class="services-item-overlay absolute position section-half">
 								<div class="col-sm-10 col-sm-offset-1">
-									<h3 class="mb20"><?php the_title() ?></h3>
-									<p>Bacon ipsum dolor amet picanha pork chop alcatra jowl frankfurter andouille pork belly bacon landjaeger tongue short loin sausage strip steak rump.</p>
+									<div class="services-item-overlay-wrapper relative">
+										<div class="full-width services-item-overlay-wrapper-title relative">
+											<h3 class="mb20"><?php the_title() ?></h3>
+										</div>
+										<div class="full-width services-item-overlay-wrapper-excerpt absolute">
+											<?php the_excerpt(); ?>
+										</div>
+										<div class="full-width services-item-overlay-wrapper-arrow absolute">
+											<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
+										</div>
+									</div>
 								</div>
-
 							</div>
-
 						</div>
 					</a>
 				</div>
@@ -189,7 +196,7 @@
 
 <section class="section process">
 	<div class="container text-center">
-		<h2 class="mb40">Our Process</h2>
+		<h2 class="mb20">Our Process</h2>
 		<p class="mb40">
 			We follow this strategy to work on each &amp; every project, it brings success
 		</p>
@@ -422,18 +429,19 @@
 				<p class="mb40">
 					We’d love to hear from you. Fill out the form below and we'll reach out to dig deeper into your product marketing challenges. We offer free consultations to see if it makes sense for us to work together. Send us your question or thoughts and we’ll get back to you within 24 hours.
 				</p>
+
 			</div>
 
 			<div class="row">
-				<form class="form-horizontal sc-form">
+				<form class="form-horizontal sc-form" id="sc_form">
 					<div class="col-sm-4">
 						<div class="form-group">
-							<input type="text" class="form-control" id="first_name" placeholder="First Name">
+							<input name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name">
 						</div>
 					</div>
 					<div class="col-sm-4 col-sm-offset-1">
 						<div class="form-group">
-							<input type="text" class="form-control" id="last_name" placeholder="Last Name">
+							<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Last Name">
 						</div>
 					</div>
 
@@ -442,13 +450,13 @@
 					<div class="col-sm-4">
 						<div class="form-group">
 							<div class="">
-								<input type="email" class="form-control" id="email" placeholder="Email">
+								<input name="email" type="email" class="form-control" id="email" placeholder="Email">
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-4 col-sm-offset-1">
 						<div class="form-group">
-							<input type="telephone" class="form-control" id="phone" placeholder="Phone">
+							<input name="telephone" type="telephone" class="form-control" id="phone" placeholder="Phone">
 						</div>
 					</div>
 
@@ -457,14 +465,14 @@
 
 					<div class="col-sm-9">
 						<div class="form-group">
-							<textarea placeholder="Message" class="form-control" rows="5"></textarea>
+							<textarea name="message" id="message" placeholder="Message" class="form-control" rows="5"></textarea>
 						</div>
 					</div>
 
 					<div class="col-sm-2 col-sm-offset-1">
 						<div class="sc-form-button">
 							<div class="sc-form-button-align">
-								<a href="#" class="btn btn-outline btn-outline-orange">SUBMIT</a>
+								<a href="#" class="btn btn-outline btn-outline-orange" id="sc_form_button">SUBMIT</a>
 							</div>
 						</div>
 					</div>
