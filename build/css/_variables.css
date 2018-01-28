@@ -1,5 +1,8 @@
 $white: #fff;
-$black: #333;
+$black: #000;
+
+$text: 51,51,51;
+$text_light: 112,112,112;
 
 $purple: 31,29,27;
 
@@ -9,7 +12,12 @@ $blue_light: 0,87,184;
 
 $orange: 255,184,28;
 $orange_light: 244,201,107;
+$orange_dark: 217,165,51;
+
+$beige: 190,147,139;
 
 $grey: 210,210,210;
 
-$grey_light: 112,112,112;
+$grey_light: 251,251,251;
+
+$brown: 184,139,54;

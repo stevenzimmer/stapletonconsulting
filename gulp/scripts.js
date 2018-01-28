@@ -10,7 +10,6 @@ gulp.task('webpack', function(callback) {
 			console.log(err.toString());
 		}
 		console.log(stats.toString());
-		console.log('webpack completed');
 		callback();
 	});
 });

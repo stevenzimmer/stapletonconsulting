@@ -1,23 +1,42 @@
-.home {
+.pillars {
 
-	&-hero {
-		padding: 180px 0;
+	p {
+		color: rgb($text_light);
+	}
 
-		&-bg {
-			background-image: url(/wp-content/uploads/theme-graphics/home-hero-bg.jpg);
-			background-size: cover;
+	&-item {
+		height: 240px;
+
+		@mixin min768 {
+			height: auto;
+		}
+
+		p {
+			color: rgb($text);
 		}
 	}
 }
 
-.pillars {
+.clients {
 
-	h2 {
-		color: rgb($blue_light);
+	&-bg {
+		background-image: url(/wp-content/uploads/theme-graphics/about-us-success-bg.jpg);
+		opacity: 0;
 	}
 
-	p {
-		color: rgb($grey_light);
+	&:hover {
+
+		img {
+			opacity: .4;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		.clients-bg {
+			opacity: 1;
+		}
 	}
 }
 
@@ -29,12 +48,11 @@
 
 		&-bg {
 			background-image: url(/wp-content/uploads/theme-graphics/services-left-bg.jpg);
-			background-size: cover;
+			background-position: 0 25%;
 		}
 
 		h3 {
 			font-size: 40px;
-			color: $white;
 		}
 
 		p {
@@ -47,6 +65,7 @@
 		height: 253px;
 		display: table;
 		width: 100%;
+		background-color: #fff;
 
 		&-inner {
 			vertical-align: middle;
@@ -61,6 +80,7 @@
 
 			p {
 				color: $white;
+				font-size: 16px;
 			}
 
 			&-bg {
@@ -73,15 +93,8 @@
 			&-wrapper {
 				height: 173px;
 
-				&-title {
-
-				}
-
-				&-excerpt {
-				}
-
 				&-arrow {
-					bottom: 0;
+					bottom: -10px;
 				}
 			}
 		}
@@ -111,14 +124,14 @@
 
 .process {
 
-	h2 {
-		color: rgb($blue_light);
+	p {
+		color: rgb($text_light);
 	}
 
 	&-item {
 
 		p {
-			text-transform: uppercase;
+			color: rgb($text);
 		}
 	}
 }
@@ -127,16 +140,10 @@
 
 	&-box {
 
-		p {
+		h3 {
 			font-size: 55px;
 			line-height: 50px;
 		}
-
-		span {
-			letter-spacing: 2px;
-			text-transform: uppercase;
-		}
-
 	}
 }
 
@@ -154,6 +161,13 @@
 
 		&:hover {
 			opacity: 1;
+		}
+
+		p {
+			font-size: 16px;
+		}
+		span {
+			font-size: 14px
 		}
 	}
 
@@ -183,6 +197,27 @@
 					&-citation {
 						opacity: 1;
 					}
+				}
+			}
+		}
+
+		&-inner {
+
+			.item {
+				opacity: 0;
+				transition: opacity .3s ease-in-out;
+				top: 0;
+				display: block;
+				position: absolute;
+				height: 160px;
+
+				@mixin min768 {
+					height: auto;
+				}
+
+				&.active {
+					opacity: 1;
+					position: relative;
 				}
 			}
 		}

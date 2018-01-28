@@ -1,8 +1,8 @@
-<footer class="section bg bg-blue-dark">
+<footer class="section bg bg-blue-dark footer">
 	<div class="container">
-		<div class="row">
+		<div class="row mb40">
 			<div class="col-sm-4 col-xs-6">
-				<h3 class="mb40">SERVICES</h3>
+				<p class="mb40 footer-header ls uc bold text-orange">services</p>
 				<ul class="mb40">
 				<?php
 					$services = new WP_Query( array(
@@ -24,7 +24,7 @@
 				</ul>
 			</div>
 			<div class="col-sm-4">
-				<h3 class="mb40">COMPANY</h3>
+				<p class="mb40 footer-header ls uc bold text-orange">company</p>
 				<ul class="mb40">
 
 					<?php
@@ -50,7 +50,7 @@
 				</ul>
 			</div>
 			<div class="col-sm-4">
-				<h3 class="mb40">ARTICLES</h3>
+				<p class="mb40 footer-header ls uc bold text-orange">articles</p>
 				<ul class="mb40">
 					<?php
 						$articles = new WP_Query( array(
@@ -80,6 +80,20 @@
 
 	</div>
 </footer>
+<div class="mobile-nav fixed position">
+	<div class="container">
+		<div class="">
+			<div class="col-xs-6 col-xs-offset-3">
+				<div class="nav-sc">
+					<?php // Primary navigation menu
+						primary_nav();
+					?>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
 
 <?php wp_footer(); ?>
 </body>

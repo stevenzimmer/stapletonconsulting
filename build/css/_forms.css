@@ -1,35 +1,100 @@
-.sc-form {
-	input {
-		height: 50px;
+.contact-form {
+
+	p {
+		line-height: 28px;
 	}
 
-	input,textarea {
-		border-radius: 2;
-		background-color: rgb($blue_mid);
-		color: $white;
-		border-color: rgb($blue_mid);
+	.sc-form {
 
-		&::placeholder {
-			color: $grey_light;
+		input {
+			height: 50px;
+
+			&[type="submit"] {
+				background-color: transparent;
+
+				&:hover {
+					background-color: rgb($orange);
+					color: rgb($blue_dark);
+				}
+			}
 		}
 
-		&:focus {
-			border-color: rgb($orange);
-			box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba($orange,.6)
+		input:not([type="submit"]),textarea {
+			border-radius: 0;
+			color: $white;
+
+			&:focus {
+				border-color: rgb($orange);
+				box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba($orange,.6)
+			}
+		}
+
+		&-button {
+
+			@mixin min768 {
+				display: table;
+				width: 100%;
+				height: 114px;
+
+				&-align {
+					display: table-cell;
+					vertical-align: bottom;
+				}
+			}
+		}
+
+		&-blue-light {
+
+			&[type="submit"] {
+
+				&:hover {
+					color: rgb($orange);
+				}
+			}
+
+			input:not([type="submit"]),textarea {
+				background-color: rgb($blue_mid);
+				border-color: rgb($blue_mid);
+
+				&::placeholder {
+					color: rgb($blue_light);
+				}
+
+
+			}
+		}
+
+		&-orange {
+
+			input:not([type="submit"]),textarea {
+				background-color: rgb($orange_dark);
+				border-color: rgb($orange_dark);
+
+				&::placeholder {
+					color: rgb($orange);
+				}
+			}
 		}
 	}
 
-	&-button {
+	&.newsletter {
 
-		@mixin min768 {
-			display: table;
-			width: 100%;
-			height: 114px;
+		.sc-form {
 
-			&-align {
-				display: table-cell;
-				vertical-align: bottom;
+			&-button {
+
+				@mixin min768 {
+					height: auto;
+				}
+			}
+		}
+
+		p {
+
+			a {
+				text-decoration: underline;
 			}
 		}
 	}
 }
+

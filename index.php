@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-5 col-md-offset-1 col-sm-6 col-sm-offset-0">
 				<div class="hero-inner">
-					<h1 class="mb40">Welcome</h1>
+					<h1 class="mb40">Index</h1>
 					<p class="mb40">
 						Unlike traditional marketing agencies, we focus on product marketing consulting, ensuring you know exactly what you need to do to win.
 					</p>
@@ -436,7 +436,7 @@
 				<form class="form-horizontal sc-form" id="sc_form">
 					<div class="col-sm-4">
 						<div class="form-group">
-							<input name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name">
+							<input name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name" required>
 						</div>
 					</div>
 					<div class="col-sm-4 col-sm-offset-1">
@@ -472,7 +472,7 @@
 					<div class="col-sm-2 col-sm-offset-1">
 						<div class="sc-form-button">
 							<div class="sc-form-button-align">
-								<a href="#" class="btn btn-outline btn-outline-orange" id="sc_form_button">SUBMIT</a>
+								<input type="submit" name="sc_form_button" id="sc_form_button" class="btn btn-outline btn-outline-orange" >
 							</div>
 						</div>
 					</div>

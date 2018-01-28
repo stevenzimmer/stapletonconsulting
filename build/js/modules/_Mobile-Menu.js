@@ -1,7 +1,7 @@
 class Mobile_Menu {
 	constructor() {
 		this.menu_icon = $('.navbar-toggle');
-		this.mobile_menu = $('.navbar-collapse');
+		this.mobile_menu = $('.mobile-nav');
 		this.search_icon = $('.navbar-nav-search');
 		this.events();
 	}
@@ -12,11 +12,11 @@ class Mobile_Menu {
 
 	toggle_menu() {
 		this.menu_icon.toggleClass('active');
-		this.mobile_menu.toggleClass('fade_in');
+		this.mobile_menu.toggleClass('active');
 		if ( this.menu_icon.hasClass('active')) {
-			$('body').addClass('body-no-scroll');
+			$('body').addClass('mobile-nav-no-scroll');
 		} else {
-			$('body').removeClass('body-no-scroll');
+			$('body').removeClass('mobile-nav-no-scroll');
 		}
 	}
 }

@@ -88,10 +88,12 @@
 
 					a {
 						color: $white;
-						font-size: 16px;
 						text-transform: uppercase;
-						font-weight: 300;
+						font-weight: 600;
 						padding-bottom: 10px;
+						font-size: 16px;
+						letter-spacing: .1em;
+						text-align: center;
 
 						&:hover,&:focus {
 							color: $white;
@@ -99,7 +101,12 @@
 
 						@mixin min768 {
 							padding: 0 0 5px 0;
+							text-align: left;
 						}
+					}
+
+					.sub-menu {
+						display: none;
 					}
 				}
 
@@ -169,7 +176,7 @@
 					transform:scale(1);
 					opacity: 1;
 					height: auto!important;
-					padding: 5px;
+					padding: 5px 0;
 				}
 			}
 		}
@@ -184,6 +191,68 @@
 			}
 		}
 	}
+}
+
+.mobile-nav {
+	background-color: rgba($blue_dark, .96);
+	padding-top: 60px;
+	opacity: 0;
+	transform: scale(1.09);
+	visibility: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
+	box-sizing: border-box;
+	position: fixed;
+	transition: opacity .3s, transform .3s, visibility .3s, -webkit-transform .3s;
+
+	&.active {
+		opacity: 1;
+		transform: scale(1);
+		visibility: visible;
+
+		@mixin min768 {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	.navbar {
+
+		&-nav {
+			width: 75%;
+			margin: auto;
+
+			li {
+
+				a:hover {
+					background-color: transparent;
+				}
+			}
+
+			.hover_nav {
+
+				&.current-menu-parent {
+
+					&> {
+						a {
+							border-bottom: 1px solid rgb($orange);
+							color: rgb($orange);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-no-scroll {
+		overflow:hidden;
+
+		@mixin min768 {
+			overflow: auto;
+		}
+	}
+
+
 }
 
 .hover_nav {
@@ -207,8 +276,8 @@
 			content: "";
 			position: absolute;
 			width: 100%;
-			height: 2px;
-			bottom: 0;
+			height: 1px;
+			bottom: -2px;
 			left: 0;
 			background-color: rgb($orange);
 			visibility: hidden;
@@ -222,7 +291,24 @@
 	&.current-menu-item {
 
 		> a {
-			border-bottom: 2px solid rgb($orange);
+			border-bottom: 1px solid rgb($orange);
+			color: rgb($orange);
+
+			&:hover {
+
+				&:before {
+					visibility: hidden;
+					transform: scaleX(0);
+				}
+			};
+		}
+	}
+
+	&.current-menu-parent {
+
+		> a {
+			border-bottom: 1px solid rgb($blue_dark);
+			color: rgb($blue_dark);
 
 			&:hover {
 

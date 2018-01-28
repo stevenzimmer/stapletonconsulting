@@ -6,10 +6,13 @@ Description: Theme for Stapleton Consulting
 Version: 1.0
 */
 
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
 @import 'bootstrap';
 @import './build/css/_variables.css';
 @import './build/css/_mixins.css';
 @import './build/css/_margins.css';
+@import './build/css/_padding.css';
 @import './build/css/_buttons.css';
 @import './build/css/_background.css';
 @import './build/css/_navigation.css';

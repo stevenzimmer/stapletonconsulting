@@ -1,0 +1,117 @@
+.services {
+
+	h2 {
+		color: rgb($blue_light);
+		font-size: 40px;
+	}
+
+	&-wrapper {
+		padding-bottom: 80px;
+
+		&-inner {
+			background-image: url(/wp-content/uploads/theme-graphics/services-detail-line-mobile.png);
+			top: 230px;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-size: contain;
+			z-index: -1;
+			background-repeat: no-repeat;
+			margin: auto;
+			width: 80%;
+
+			@mixin min768 {
+				background-image: url(/wp-content/uploads/theme-graphics/services-detail-line.png);
+			}
+		}
+	}
+
+	&-deliverable {
+		padding: 40px 0;
+
+		@mixin min768 {
+			padding-bottom: 160px;
+		}
+
+		&-img {
+			@mixin min768 {
+				padding: 0 40px;
+			}
+
+		}
+
+		&-box {
+			background-color: rgba($blue_light, .9);
+			position: relative;
+
+			@mixin min768 {
+				width: 399px;
+				bottom: 60px;
+				position: absolute;
+			}
+
+			h3 {
+				color: $white;
+				font-size: 40px;
+			}
+
+			p {
+				font-size: 21px;
+				line-height: 32px;
+				font-weight: lighter;
+			}
+		}
+
+		&-spacing {
+			padding: 0 0 20px;
+
+			@mixin min768 {
+				padding: 80px 0;
+			}
+		}
+
+		&:nth-child(odd) {
+
+			.services-deliverable-box {
+				@mixin min768 {
+					left: 0;
+				}
+			}
+		}
+
+		&:nth-child(even) {
+
+			.services-deliverable-box {
+				@mixin min768 {
+					right: 0;
+				}
+			}
+		}
+	}
+
+	&-related {
+
+		&-bg {
+			background-image: url(/wp-content/uploads/theme-graphics/services-related-bg.jpg);
+			background-size: cover;
+		}
+
+		h3 {
+			color: rgb($blue_dark);
+		}
+	}
+}
+
+.single-services {
+
+	.nav {
+
+		.hover_nav {
+
+			>a:before {
+				background-color: rgb($blue_dark);
+			}
+		}
+
+	}
+}

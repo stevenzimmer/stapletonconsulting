@@ -26,14 +26,16 @@ class Search {
 	// Methods
 	open_overlay() {
 		this.search_overlay.addClass('live-search-active');
-		$('body').addClass('body-no-scroll');
+		$('body').addClass('search-no-scroll');
+		$('header, section').addClass('blur');
 		setTimeout( () => {this.search_field.focus()}, 300);
 		this.is_overlay_open = true;
 	}
 
 	close_overlay() {
 		this.search_overlay.removeClass('live-search-active');
-		$('body').removeClass('body-no-scroll');
+		$('body').removeClass('search-no-scroll');
+		$('header, section').removeClass('blur');
 		this.search_field.val('');
 		this.results_container.html('');
 		this.is_overlay_open = false;
@@ -89,10 +91,11 @@ class Search {
 							${data.length ? '<ul class="link-list min-list">' : '<p>No Information matches that search</p>' }
 								${data.map( item => `<div class="relative">
 														<a href="${item.permalink}">
-															<li class="link-list-item relative">${item.title}
+															<li class="link-list-item relative">
+																${item.title}
 																<ul>
 																	<li class="link-list-item-type">
-																		${item.post_type}
+																		${item.post_type} - ${item.title}
 																	</li>
 																</ul>
 															</li>
@@ -127,7 +130,13 @@ class Search {
 											</div>
 										</div>
 										<div class="col-sm-2 col-xs-1">
-											<span class="glyphicon glyphicon-remove live-search__close absolute" aria-hidden="true"></span>
+											<div class="nav-sc live-search__close relative">
+												<button type="button" class="navbar-toggle active absolute" data-toggle="collapse" data-target="#sc-navbar" aria-expanded="false">
+													<span class="sr-only">Toggle navigation</span>
+													<span class="icon-bar absolute"></span>
+												</button>
+											</div>
+
 										</div>
 									</div>
 								</div>

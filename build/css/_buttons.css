@@ -4,6 +4,8 @@
 	font-weight: 600;
 	letter-spacing: 2px;
 	border-radius: 0;
+	text-transform: uppercase;
+	transition: .3s all ease-in-out;
 
 	&-outline {
 		border: 1px solid;
@@ -15,6 +17,21 @@
 			&:hover,&:focus {
 				color: rgb($blue_dark);
 				background-color: rgb($orange);
+			}
+		}
+
+		&-blue {
+			border-color: rgb($blue_dark);
+			color: rgb($blue_dark);
+		}
+
+		&-white {
+			border-color: $white;
+			color: $white;
+
+			&:hover {
+
+				color: $white;
 			}
 		}
 	}

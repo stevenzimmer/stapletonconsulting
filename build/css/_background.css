@@ -1,5 +1,4 @@
 .bg {
-	color: $white;
 
 	&-purple {
 		background-color: rgb($purple);
@@ -22,9 +21,17 @@
 		&-light {
 			background-color: rgb($orange_light);
 		}
+
+		&-opaque {
+			background-color: rgba($orange,.6);
+		}
 	}
 
 	&-grey {
 		background-color: rgb($grey);
+
+		&-light {
+			background-color: rgb($grey_light)
+		}
 	}
 }

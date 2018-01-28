@@ -1,0 +1,53 @@
+.article {
+
+	&-body {
+		color: rgb($text_light);
+
+		p {
+			font-size: 16px;
+		}
+
+		&-quote {
+			background-size: cover;
+			background-image: url(/wp-content/uploads/theme-graphics/about-us-success-bg.jpg);
+		}
+	}
+
+	&-intro {
+
+		p {
+			color: rgb($blue_light);
+			font-weight: 600;
+			font-size: 20px
+		}
+	}
+}
+
+.overlay {
+
+	&-bg {
+		background-color: rgba(0,0,0,.3);
+
+		&-half {
+			background-image: url(/wp-content/uploads/theme-graphics/half-page-right-img.jpg);
+			background-position: 0 99%;
+		}
+
+		&-quarter {
+			background-image: url(/wp-content/uploads/theme-graphics/quarter-page-bg.jpg);
+		}
+
+
+	}
+}
+
+.post-nav {
+	a {
+		color: rgb($brown);
+		border-bottom: 1px solid rgb($brown);
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

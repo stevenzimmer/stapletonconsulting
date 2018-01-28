@@ -10386,7 +10386,7 @@ var Mobile_Menu = function () {
 		_classCallCheck(this, Mobile_Menu);
 
 		this.menu_icon = $('.navbar-toggle');
-		this.mobile_menu = $('.navbar-collapse');
+		this.mobile_menu = $('.mobile-nav');
 		this.search_icon = $('.navbar-nav-search');
 		this.events();
 	}
@@ -10400,11 +10400,11 @@ var Mobile_Menu = function () {
 		key: 'toggle_menu',
 		value: function toggle_menu() {
 			this.menu_icon.toggleClass('active');
-			this.mobile_menu.toggleClass('fade_in');
+			this.mobile_menu.toggleClass('active');
 			if (this.menu_icon.hasClass('active')) {
-				$('body').addClass('body-no-scroll');
+				$('body').addClass('mobile-nav-no-scroll');
 			} else {
-				$('body').removeClass('body-no-scroll');
+				$('body').removeClass('mobile-nav-no-scroll');
 			}
 		}
 	}]);
@@ -10469,7 +10469,8 @@ var Search = function () {
 			var _this = this;
 
 			this.search_overlay.addClass('live-search-active');
-			$('body').addClass('body-no-scroll');
+			$('body').addClass('search-no-scroll');
+			$('header, section').addClass('blur');
 			setTimeout(function () {
 				_this.search_field.focus();
 			}, 300);
@@ -10479,7 +10480,8 @@ var Search = function () {
 		key: 'close_overlay',
 		value: function close_overlay() {
 			this.search_overlay.removeClass('live-search-active');
-			$('body').removeClass('body-no-scroll');
+			$('body').removeClass('search-no-scroll');
+			$('header, section').removeClass('blur');
 			this.search_field.val('');
 			this.results_container.html('');
 			this.is_overlay_open = false;
@@ -10530,7 +10532,7 @@ var Search = function () {
 
 			$.getJSON(url, function (data) {
 				_this2.results_container.html('\n\t\t\t\t<div class="results-container">\n\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t<div class="col-sm-10 col-sm-offset-1">\n\t\t\t\t\t\t\t' + (data.length ? '<ul class="link-list min-list">' : '<p>No Information matches that search</p>') + '\n\t\t\t\t\t\t\t\t' + data.map(function (item) {
-					return '<div class="relative">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href="' + item.permalink + '">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class="link-list-item relative">' + item.title + '\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class="link-list-item-type">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' + item.post_type + '\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="link-list-arrow absolute"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t';
+					return '<div class="relative">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href="' + item.permalink + '">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class="link-list-item relative">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' + item.title + '\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class="link-list-item-type">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t' + item.post_type + ' - ' + item.title + '\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="link-list-arrow absolute"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t';
 				}).join('') + '\n\t\t\t\t\t\t\t' + (data.length ? '</ul>' : '') + '\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t');
 				_this2.is_spinning = false;
 			});
@@ -10538,7 +10540,7 @@ var Search = function () {
 	}, {
 		key: 'add_search_html',
 		value: function add_search_html() {
-			$('body').append('\n\t\t\t<div class="live-search">\n\t\t\t\t<div class="container">\n\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t<div class="col-sm-10 col-sm-offset-1">\n\t\t\t\t\t\t\t<div class="live-search-container relative">\n\t\t\t\t\t\t\t\t<div class="live-search__top mb40">\n\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-1 col-xs-2">\n\t\t\t\t\t\t\t\t\t\t\t<span class="glyphicon glyphicon-search live-search__icon" aria-hidden="true"></span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-9 col-xs-9">\n\t\t\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="search-term" placeholder="What are you looking for?" id="search-term">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-2 col-xs-1">\n\t\t\t\t\t\t\t\t\t\t\t<span class="glyphicon glyphicon-remove live-search__close absolute" aria-hidden="true"></span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class="live-search__bottom">\n\t\t\t\t\t\t\t\t\t<div class="" id="live-search__results"></div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
+			$('body').append('\n\t\t\t<div class="live-search">\n\t\t\t\t<div class="container">\n\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t<div class="col-sm-10 col-sm-offset-1">\n\t\t\t\t\t\t\t<div class="live-search-container relative">\n\t\t\t\t\t\t\t\t<div class="live-search__top mb40">\n\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-1 col-xs-2">\n\t\t\t\t\t\t\t\t\t\t\t<span class="glyphicon glyphicon-search live-search__icon" aria-hidden="true"></span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-9 col-xs-9">\n\t\t\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="search-term" placeholder="What are you looking for?" id="search-term">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-2 col-xs-1">\n\t\t\t\t\t\t\t\t\t\t\t<div class="nav-sc live-search__close relative">\n\t\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="navbar-toggle active absolute" data-toggle="collapse" data-target="#sc-navbar" aria-expanded="false">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="sr-only">Toggle navigation</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="icon-bar absolute"></span>\n\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class="live-search__bottom">\n\t\t\t\t\t\t\t\t\t<div class="" id="live-search__results"></div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
 		}
 	}]);
 

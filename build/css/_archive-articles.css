@@ -1,0 +1,78 @@
+.articles-archive {
+
+	&-hero {
+
+		&-bg {
+			background-image: url(/wp-content/uploads/theme-graphics/articles-archive-hero-bg.jpg);
+		}
+	}
+
+	&-categories {
+
+		a {
+			text-decoration: none;
+		}
+
+		&-item {
+			width: 100%;
+			opacity: .4;
+
+			&.active,&:hover {
+				opacity: 1;
+
+				td {
+					a {
+						border-bottom: 1px solid;
+					}
+				}
+			}
+		}
+	}
+
+	&-half {
+
+		&-left {
+
+			&-bg {
+				background-image: url(/wp-content/uploads/theme-graphics/articles-overview-half-left.jpg);
+			}
+		}
+	}
+
+	&-featured {
+
+		&-double {
+
+			&-bg {
+				background-image: url(/wp-content/uploads/theme-graphics/articles-archive-two-story-bg.jpg);
+			}
+		}
+
+		&-single {
+
+			&-bg {
+				background-image: url(/wp-content/uploads/theme-graphics/articles-archive-single-story-bg.jpg);
+			}
+		}
+	}
+}
+
+.featured-post {
+	padding: 160px 0;
+
+	&-bg {
+		background-image: url(/wp-content/uploads/2018/01/articles-hero-test.jpg);
+
+		&-overlay {
+			opacity: 0;
+			transition: .3s opacity ease-in-out;
+		}
+	}
+
+	&:hover {
+
+		.featured-post-bg-overlay {
+			opacity: 1;
+		}
+	}
+}

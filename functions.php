@@ -63,5 +63,214 @@
 	// Remove Wordpress version number
 	add_filter( 'the_generator', '__return_null' );
 
+	function page_hero($args) {
+
+		if ( !isset($args['bg_color']) ) :
+			$args['bg_color'] = 'blue-dark';
+		endif;
+
+		if ( !isset($args['h1_color']) ) :
+			$args['h1_color'] = 'white';
+		endif;
+?>
+
+<header class="bg-<?php echo $args['bg_color'] ?> page-hero relative">
+	<div class="absolute position page-hero-bg page-hero-bg-<?php echo $args['type'] ?> parallax"></div>
+	<div class="container relative">
+		<div class="row">
+			<div class="col-md-5 col-md-offset-1 col-sm-6 col-sm-offset-0">
+				<div class="hero-inner">
+					<h1 class="mb40 text-<?php echo $args['h1_color']?>"><?php echo $args['title']; ?></h1>
+					<p class="mb40 text-white">
+						<?php echo $args['subtitle']; ?>
+
+					</p>
+					<table width="100%">
+						<tr>
+							<?php
+								$i = 1;
+								foreach ( $args['ctas'] as $cta ) :
+									if ( $i % 2 === 0) :
+										$btn_bg = 'solid';
+									else :
+										$btn_bg = 'outline';
+									endif;
+							?>
+							<td>
+								<a href="<?php echo $cta['link'] ?>" class="btn btn-<?php echo $btn_bg ?> btn-<?php echo $btn_bg ?>-<?php echo $cta['btn_color'] ?>"><?php echo $cta['text'] ?></a>
+							</td>
+							<?php
+								$i++;
+								endforeach;
+							?>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<?php
+	}
+
+	function contact_form($color) {
+
+?>
+<section class="section bg-<?php echo $color ?> contact-form" id="contact">
+	<div class="container">
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="row">
+				<h2 class="mb40 text-white">Get in Touch</h2>
+				<p class="mb40 text-white">
+					We’d love to hear from you. Fill out the form below and we'll reach out to dig deeper into your product marketing challenges. We offer free consultations to see if it makes sense for us to work together. Send us your question or thoughts and we’ll get back to you within 24 hours.
+				</p>
+
+			</div>
+
+			<div class="row">
+				<form class="form-horizontal sc-form sc-form-<?php echo $color; ?>" id="sc_form">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<input name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name" required>
+						</div>
+					</div>
+					<div class="col-sm-4 col-sm-offset-1">
+						<div class="form-group">
+							<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Last Name">
+						</div>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<div class="">
+								<input name="email" type="email" class="form-control" id="email" placeholder="Email">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4 col-sm-offset-1">
+						<div class="form-group">
+							<input name="telephone" type="telephone" class="form-control" id="phone" placeholder="Phone">
+						</div>
+					</div>
+
+					<div class="clearfix"></div>
+
+
+					<div class="col-sm-9">
+						<div class="form-group">
+							<textarea name="message" id="message" placeholder="Message" class="form-control" rows="5"></textarea>
+						</div>
+					</div>
+
+					<div class="col-sm-2 col-sm-offset-1">
+						<div class="sc-form-button">
+							<div class="sc-form-button-align">
+								<input type="submit" name="sc_form_button" id="sc_form_button" class="btn btn-outline
+								<?php
+									if ($color !== 'orange') :
+										echo 'btn-outline-orange';
+									endif;
+								?>">
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<?php
+
+	}
+
+	function our_process($bg = null) {
+?>
+<section class="section process bg-<?php echo $bg ?>">
+	<div class="container text-center">
+		<h2 class="mb20 text-blue-light">Our Process</h2>
+		<p>
+			We follow this strategy to work on each & every project, it brings success
+		</p>
+		<div class="section-half"></div>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="row">
+
+				<?php
+					$processes = array(
+						array(
+							'eye',
+							'analysis'
+						),
+						array(
+							'wheel',
+							'planning'
+						),
+						array(
+							'lightbulb',
+							'strategy'
+						),
+						array(
+							'trophy',
+							'execution'
+						)
+					);
+
+					foreach ( $processes as $process ) :
+
+						$icon = $process[0];
+						$title = $process[1];
+				?>
+
+					<div class="col-sm-3">
+						<div class="process-item mb40">
+							<img alt="<?php echo $title ?> icon" class="mb20" height="70" src="/wp-content/uploads/theme-graphics/<?php echo $icon ?>_icon.png">
+							<p class="ls uc bold"><?php echo $title; ?></p>
+						</div>
+					</div>
+
+				<?php
+					endforeach;
+				?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<?php
+
+	}
+
+	function get_started($color = 'light') {
+?>
+<section class="bg-blue-<?php echo $color ?> section relative get-started">
+	<div class="get-started-bg absolute position"></div>
+	<div class="container text-center relative">
+		<h2 class="mb40 text-white">Ready to get started?</h2>
+		<a href="/contact-us" class="btn btn-outline btn-outline-orange">CONTACT US</a>
+	</div>
+</section>
+<?php
+	}
+
+	function primary_nav() {
+		wp_nav_menu(
+			array(
+				'theme_location' 	=> 'primary',
+				'menu'				=> 'Primary',
+				'container'			=> false,
+				'menu_class'		=> 'nav navbar-nav',
+				'echo'				=> true,
+				'fallback_cb'		=> false
+			)
+		);
+	}
+
+	remove_filter( 'the_content', 'wpautop' );
+	remove_filter( 'the_excerpt', 'wpautop' );
 
 ?>
