@@ -1,0 +1,107 @@
+.page-template-page-leads {
+	.nav-sc {
+		display: none;
+	}
+
+	.footer {
+		display: none;
+	}
+
+	.contact-form {
+
+		.sc-form {
+
+			input[type=submit] {
+				background-color: rgb($orange);
+			}
+
+			&-button-align {
+				vertical-align: middle;
+			}
+		}
+	}
+
+}
+
+.leads {
+
+	&-hero {
+		padding: 120px 0;
+
+		&-bg {
+			background-image: url(/wp-content/uploads/theme-graphics/leads-hero-bg.jpg);
+		}
+
+		&-left {
+
+			ul {
+				padding: 15px;
+			}
+		}
+
+		&-right {
+			padding: 30px 20px;
+
+			&-box {
+
+
+				form {
+
+					.form-control {
+						background-color: #f0f0f0;
+						height: 50px;
+						border: none;
+						font-size: 22px;
+						color: #1f1d1b;
+
+						&:focus {
+							box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba($orange,.6);
+							border: 1px solid rgb($orange);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-section {
+
+		@mixin min992 {
+			padding: 110px 0;
+
+			&-bg {
+				background-image: url(/wp-content/uploads/theme-graphics/leads-section-bg.jpg);
+				background-position: -150px 0;
+			}
+		}
+
+
+
+
+		&-bottom {
+
+			p {
+				font-size: 16px;
+			}
+		}
+	}
+
+	&-footer {
+
+		ul {
+			list-style: none;
+
+			li {
+				margin-bottom: 10px;
+
+				a {
+
+					&:hover {
+						color: rgb($rgb_white);
+					}
+				}
+
+			}
+		}
+	}
+}

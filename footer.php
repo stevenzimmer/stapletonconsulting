@@ -73,7 +73,7 @@
 			</div>
 		</div>
 		<div class="row text-center">
-			<p>
+			<p class="text-white">
 				Copyright &copy; <?php echo date('Y'); ?> Stapleton Consulting All rights Reserved
 			</p>
 		</div>

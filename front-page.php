@@ -10,19 +10,15 @@
 	$pillars_header = get_field('pillars_header');
 	$pillars_subheader = get_field('pillars_subheader');
 
-	$pillar_item_one_icon = get_field('pillar_item_one_icon');
 	$pillar_item_one_header = get_field('pillar_item_one_header');
 	$pillar_item_one_paragraph = get_field('pillar_item_one_paragraph');
 
-	$pillar_item_two_icon = get_field('pillar_item_two_icon');
 	$pillar_item_two_header = get_field('pillar_item_two_header');
 	$pillar_item_two_paragraph = get_field('pillar_item_two_paragraph');
 
-	$pillar_item_three_icon = get_field('pillar_item_three_icon');
 	$pillar_item_three_header = get_field('pillar_item_three_header');
 	$pillar_item_three_paragraph = get_field('pillar_item_three_paragraph');
 
-	$pillar_item_four_icon = get_field('pillar_item_four_icon');
 	$pillar_item_four_header = get_field('pillar_item_four_header');
 	$pillar_item_four_paragraph = get_field('pillar_item_four_paragraph');
 
@@ -31,44 +27,51 @@
 	$services_header = get_field('services_header');
 	$services_paragraph = get_field('services_paragraph');
 
-	$stats_number_one = get_field('stats_number_one');
-	$stats_title_one = get_field('stats_title_one');
+	// $stats_number_one = get_field('stats_number_one');
+	// $stats_title_one = get_field('stats_title_one');
 
-	$stats_number_two = get_field('stats_number_two');
-	$stats_title_two = get_field('stats_title_two');
+	// $stats_number_two = get_field('stats_number_two');
+	// $stats_title_two = get_field('stats_title_two');
 
-	$stats_number_three = get_field('stats_number_three');
-	$stats_title_three = get_field('stats_title_three');
+	// $stats_number_three = get_field('stats_number_three');
+	// $stats_title_three = get_field('stats_title_three');
 
-	$stats_number_four = get_field('stats_number_four');
-	$stats_title_four = get_field('stats_title_four');
+	// $stats_number_four = get_field('stats_number_four');
+	// $stats_title_four = get_field('stats_title_four');
 
-	$stats_number_five = get_field('stats_number_five');
-	$stats_title_five = get_field('stats_title_five');
+	// $stats_number_five = get_field('stats_number_five');
+	// $stats_title_five = get_field('stats_title_five');
 
-	$stats_number_six = get_field('stats_number_six');
-	$stats_title_six = get_field('stats_title_six');
+	// $stats_number_six = get_field('stats_number_six');
+	// $stats_title_six = get_field('stats_title_six');
 
-	page_hero(array(
-			'type' => 'home',
-			'title' => $hero_header,
-			'subtitle' => $hero_paragraph,
-			'ctas' => array(
-				array(
-					'link' => '#contact',
-					'text' => 'Contact Us',
-					'btn_color' => 'orange'
-				),
-
-				array(
-					'link' => '#',
-					'text' => 'active button',
-					'btn_color' => 'orange'
-				)
-			)
-		)
-	);
 ?>
+
+<header class="bg-blue-dark page-hero relative">
+	<div class="absolute position page-hero-bg page-hero-bg-home parallax" style="background-image: url(<?php the_post_thumbnail_url(); ?>)"></div>
+	<div class="container relative">
+		<div class="row">
+			<div class="col-md-5 col-md-offset-1 col-sm-6 col-sm-offset-0">
+				<div class="hero-inner">
+					<h1 class="mb40 text-white"><?php echo $hero_header; ?></h1>
+					<p class="mb40 text-white">
+						<?php echo $hero_paragraph; ?>
+					</p>
+					<table width="100%">
+						<tr>
+							<td>
+								<a href="#contact" class="btn btn-outline btn-outline-orange">contact us</a>
+							</td>
+							<td>
+								<a href="/services" class="btn btn-solid btn-solid-orange">see all services</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
 
 <section class="section pillars">
 	<div class="container text-center">
@@ -81,22 +84,22 @@
 
 				$pillars = array(
 					array(
-						$pillar_item_one_icon,
+						'key',
 						$pillar_item_one_header,
 						$pillar_item_one_paragraph
 					),
 					array(
-						$pillar_item_two_icon,
+						'lightbulb',
 						$pillar_item_two_header,
 						$pillar_item_two_paragraph
 					),
 					array(
-						$pillar_item_three_icon,
+						'lightning',
 						$pillar_item_three_header,
 						$pillar_item_three_paragraph
 					),
 					array(
-						$pillar_item_four_icon,
+						'diamond',
 						$pillar_item_four_header,
 						$pillar_item_four_paragraph
 					)
@@ -112,7 +115,7 @@
 
 			<div class="col-sm-3 col-xs-6">
 				<div class="pillars-item mb40">
-					<img alt="<?php echo $title; ?> icon" class="mb20" height="39" src="<?php echo $icon; ?>">
+					<span class="icon-small owl-icon owl-icon--pillars-<?php echo $icon; ?>"></span>
 					<h3 class="mb20 text-blue-dark"><?php echo $title; ?></h3>
 					<p><?php echo $paragraph; ?></p>
 				</div>
@@ -137,18 +140,21 @@
 
 				<?php
 					$clients = array(
-							'apple',
-							'nike',
-							'google',
-							'twitter'
+							'maven',
+							'fond',
+							'greenhouse'
 					);
 
 					foreach ( $clients as $client ) :
 				?>
 
-				<div class="col-sm-3 col-xs-6">
+				<div class="col-sm-4">
 					<div class="mb40">
-						<img alt="<?php echo $client ?> logo" class="mb40" height="80" src="/wp-content/uploads/theme-graphics/<?php echo $client ?>_logo_white.png">
+						<img alt="<?php echo $client ?> logo" class="mb40" height="50" src="/wp-content/uploads/theme-graphics/<?php echo $client ?>-white.<?php if ($client == 'greenhouse') :
+							echo 'svg';
+						else:
+							echo 'png';
+						endif; ?>">
 					</div>
 
 				</div>
@@ -189,14 +195,15 @@
 				while ($services->have_posts()) :
 						$services->the_post();
 						$services_title_lowercase = strtolower(get_the_title());
-						$services_icon = str_replace(array(' ','-'), '_', $services_title_lowercase);
+						$services_icon = str_replace(' ', '_', $services_title_lowercase);
 			?>
 			<div class="col-md-4">
 				<div class="row">
 					<a href="<?php the_permalink(); ?>">
 						<div class="services-item">
 							<div class="services-item-inner relative">
-								<img alt="<?php echo $services_icon ?> icon" class="mb20" height="109" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_yellow.png">
+								<span class="owl-icon icon-small owl-icon--<?php echo $services_icon  ?>_gold"></span>
+
 								<h3><?php the_title(); ?></h3>
 							</div>
 							<div class="services-item-overlay-bg position absolute"></div>
@@ -232,64 +239,64 @@
 	get_started();
 	our_process();
 ?>
-<section class="specs">
+<!-- <section class="specs">
 	<div class="container-fluid">
 		<div class="row">
 
 		<?php
-			$specs = array(
-				array(
-					$stats_number_one,
-					'purple',
-					$stats_title_one
-				),
-				array(
-					$stats_number_two,
-					'blue-dark',
-					$stats_title_two
-				),
-				array(
-					$stats_number_three,
-					'blue-light',
-					$stats_title_three
-				),
-				array(
-					$stats_number_four,
-					'orange',
-					$stats_title_four
-				),
-				array(
-					$stats_number_five,
-					'orange-light',
-					$stats_title_five
-				),
-				array(
-					$stats_number_six,
-					'grey',
-					$stats_title_six
-				)
-			);
+			// $specs = array(
+			// 	array(
+			// 		$stats_number_one,
+			// 		'purple',
+			// 		$stats_title_one
+			// 	),
+			// 	array(
+			// 		$stats_number_two,
+			// 		'blue-dark',
+			// 		$stats_title_two
+			// 	),
+			// 	array(
+			// 		$stats_number_three,
+			// 		'blue-light',
+			// 		$stats_title_three
+			// 	),
+			// 	array(
+			// 		$stats_number_four,
+			// 		'orange',
+			// 		$stats_title_four
+			// 	),
+			// 	array(
+			// 		$stats_number_five,
+			// 		'orange-light',
+			// 		$stats_title_five
+			// 	),
+			// 	array(
+			// 		$stats_number_six,
+			// 		'grey',
+			// 		$stats_title_six
+			// 	)
+			// );
 
-			foreach ( $specs as $spec ) :
-				$number = $spec[0];
-				$bg = $spec[1];
-				$title = $spec[2];
+			// foreach ( $specs as $spec ) :
+			// 	$number = $spec[0];
+			// 	$bg = $spec[1];
+			// 	$title = $spec[2];
 		?>
 			<div class="col-md-2 col-sm-4 col-xs-6">
 				<div class="row">
 					<div class="specs-box text-center bg bg-<?php echo $bg ?> section-half">
-						<h3 class="mb20 text-white"><?php echo $number ?></h3>
-						<span class="ls uc text-white"><?php echo $title; ?></span>
+						<h3 class="mb20 text-white"><?php // echo $number ?></h3>
+						<span class="ls uc text-white"><?php // echo $title; ?></span>
 					</div>
 				</div>
 			</div>
 
 		<?php
-			endforeach;
+			// endforeach;
 		?>
 		</div>
 	</div>
-</section>
+</section> -->
 
 
 <?php

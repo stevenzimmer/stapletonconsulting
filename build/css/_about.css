@@ -33,11 +33,32 @@
 		}
 
 		&-col {
-			background-color: $white;
+
 			transition: all .3s ease-in-out;
 
 			&:hover {
-				background-color: transparent;
+				background-color: $white;
+
+				.about-us {
+
+					&-clients {
+
+						&-col {
+
+							&-hover {
+								display: block;
+							}
+
+							&-unhover {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+
+			&-hover {
+				display: none;
 			}
 		}
 
@@ -69,8 +90,6 @@
 			&-text {
 
 				&-bio {
-					max-height: 160px;
-					overflow: hidden;
 
 					p {
 						font-size: 14px;

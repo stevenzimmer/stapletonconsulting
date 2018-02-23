@@ -6,8 +6,9 @@ get_header();
 
 while (have_posts()) :
 	the_post();
-	$services_title_lowercase = strtolower(get_the_title());
-	$services_icon = str_replace(array(' ','-'), '_', $services_title_lowercase);
+	$services_title_lowercase = strtolower( get_the_title() );
+	$services_icon = html_entity_decode(str_replace( array(' '), array('_'), $services_title_lowercase));
+	$services_icon_wash = str_replace('_&_', '_', $services_icon);
 
 	page_hero(array(
 			'type' => 'services-detail',
@@ -30,8 +31,8 @@ while (have_posts()) :
 	<div class="container">
 		<div class="col-sm-10 col-sm-offset-1">
 			<div class="row text-center">
-				<img alt="<?php echo $services_icon ?> icon" class="mb20" height="109" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_yellow.png">
-				<h2>Deliverables</h2>
+				<span class="owl-icon icon-small owl-icon--<?php echo $services_icon_wash; ?>_gold"></span>
+				<h2 class="text-blue-light">Deliverables</h2>
 			</div>
 
 			<div class="row">
@@ -52,9 +53,9 @@ while (have_posts()) :
 <section class="section services-related relative">
 	<div class="position absolute services-related-bg"></div>
 	<div class="container relative">
-		<div class="row text-center">
+		<div class="row ">
 			<div class="col-sm-8 col-sm-offset-2">
-				<h2 class="mb40">Related Services</h2>
+				<h2 class="mb40 text-center">Related Services</h2>
 
 				<?php
 					$services = new WP_Query( array(
@@ -66,15 +67,16 @@ while (have_posts()) :
 					);
 					while ($services->have_posts()) :
 							$services->the_post();
-							$services_title_lowercase = strtolower(get_the_title());
-							$services_icon = str_replace(array(' ','-'), '_', $services_title_lowercase);
+							$services_title_lowercase = strtolower( get_the_title() );
+							$services_icon = html_entity_decode(str_replace( array(' '), array('_'), $services_title_lowercase));
+							$services_icon_wash = str_replace('_&_', '_', $services_icon);
 				?>
 				<div class="col-sm-6 mb40">
 					<div class="row">
 						<a href="<?php the_permalink(); ?>">
 							<div class="services-item">
-								<div class="services-item-inner relative">
-									<img alt="<?php echo $services_icon ?> icon" class="mb20" height="109" src="/wp-content/uploads/theme-graphics/services_<?php echo $services_icon ?>_icon_yellow.png">
+								<div class="services-item-inner relative text-center">
+									<span class="owl-icon icon-small owl-icon--<?php echo $services_icon_wash;  ?>_gold"></span>
 									<h3><?php the_title(); ?></h3>
 								</div>
 								<div class="services-item-overlay-bg position absolute"></div>
@@ -101,8 +103,8 @@ while (have_posts()) :
 					endwhile;
 					wp_reset_postdata();
 				?>
-			<div>
-				<a href="/services" class="btn btn-outline btn-outline-orange">see all services</a>
+			<div class="text-center">
+				<a href="/services" class="btn btn-solid btn-solid-orange">see all services</a>
 			</div>
 		</div>
 	</div>

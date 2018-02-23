@@ -10490,9 +10490,9 @@ var Search = function () {
 		key: 'key_press',
 		value: function key_press(e) {
 
-			if (e.keyCode === 83 && !this.is_overlay_open && !$('input, textarea').is(':focus')) {
-				this.open_overlay();
-			}
+			// if ( e.keyCode === 83 && !this.is_overlay_open && !$('input, textarea').is(':focus') ) {
+			// 	this.open_overlay();
+			// }
 
 			if (e.keyCode === 27 && this.is_overlay_open) {
 				this.close_overlay();
@@ -10540,7 +10540,7 @@ var Search = function () {
 	}, {
 		key: 'add_search_html',
 		value: function add_search_html() {
-			$('body').append('\n\t\t\t<div class="live-search">\n\t\t\t\t<div class="container">\n\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t<div class="col-sm-10 col-sm-offset-1">\n\t\t\t\t\t\t\t<div class="live-search-container relative">\n\t\t\t\t\t\t\t\t<div class="live-search__top mb40">\n\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-1 col-xs-2">\n\t\t\t\t\t\t\t\t\t\t\t<span class="glyphicon glyphicon-search live-search__icon" aria-hidden="true"></span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-9 col-xs-9">\n\t\t\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="search-term" placeholder="What are you looking for?" id="search-term">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-2 col-xs-1">\n\t\t\t\t\t\t\t\t\t\t\t<div class="nav-sc live-search__close relative">\n\t\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="navbar-toggle active absolute" data-toggle="collapse" data-target="#sc-navbar" aria-expanded="false">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="sr-only">Toggle navigation</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="icon-bar absolute"></span>\n\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class="live-search__bottom">\n\t\t\t\t\t\t\t\t\t<div class="" id="live-search__results"></div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
+			$('body').append('\n\t\t\t<div class="live-search position fixed">\n\t\t\t\t<div class="container">\n\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t<div class="col-sm-10 col-sm-offset-1">\n\t\t\t\t\t\t\t<div class="live-search-container relative">\n\t\t\t\t\t\t\t\t<div class="live-search__top mb40">\n\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-1 col-xs-2">\n\t\t\t\t\t\t\t\t\t\t\t<span class="glyphicon glyphicon-search live-search__icon" aria-hidden="true"></span>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-9 col-xs-9">\n\t\t\t\t\t\t\t\t\t\t\t<div class="row">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="search-term" placeholder="What are you looking for?" id="search-term">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="col-sm-2 col-xs-1">\n\t\t\t\t\t\t\t\t\t\t\t<div class="nav-sc live-search__close relative">\n\t\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="navbar-toggle active absolute" data-toggle="collapse" data-target="#sc-navbar" aria-expanded="false">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="sr-only">Toggle navigation</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class="icon-bar absolute"></span>\n\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class="live-search__bottom">\n\t\t\t\t\t\t\t\t\t<div class="" id="live-search__results"></div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t');
 		}
 	}]);
 
@@ -10664,8 +10664,9 @@ var Forms = function () {
 	function Forms() {
 		_classCallCheck(this, Forms);
 
-		this.form = $('#sc_form');
-		this.button = $('#sc_form_button');
+		this.form = $('.sc-form');
+		this.form_leads = $('.leads-hero-right-box');
+		this.form_success = $('.form-success');
 		this.field = $('.form-control');
 		this.form_values = [];
 		this.events();
@@ -10674,36 +10675,30 @@ var Forms = function () {
 	_createClass(Forms, [{
 		key: 'events',
 		value: function events() {
-			this.button.on('click', this.form_handler.bind(this));
+			this.form.on('submit', this.form_handler.bind(this));
+			this.form_leads.on('submit', this.form_handler_leads.bind(this));
 		}
 	}, {
 		key: 'form_handler',
 		value: function form_handler(e) {
-			var _this = this;
-
 			e.preventDefault();
 
-			this.field.each(function (i, val) {
+			console.log('submitted');
 
-				_this.form_values[_this.field[i].name] = val.value;
-			});
+			this.form.remove();
 
-			console.log(this.form_values);
+			this.form_success.show();
+		}
+	}, {
+		key: 'form_handler_leads',
+		value: function form_handler_leads(e) {
+			e.preventDefault();
 
-			var url = sc_data.theme_folder + '/inc/form-submit.php';
+			console.log('submitted');
 
-			$.ajax({
-				url: url,
-				type: 'post',
-				data: this.form_values,
-				success: function success(data) {
-					console.log('success');
-					console.log('data', data);
-				},
-				error: function error() {
-					console.log('error');
-				}
-			});
+			this.form_leads.remove();
+
+			this.form_success.show();
 		}
 	}]);
 

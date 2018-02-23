@@ -32,20 +32,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<div class="container">
 		<div class="nav-sc-container">
 			<div class="row">
-				<div class="">
-					<button type="button" class="navbar-toggle" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar absolute"></span>
-					</button>
-				</div>
-				<div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-7 col-xs-offset-1">
+
+				<button type="button" class="navbar-toggle" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar absolute"></span>
+				</button>
+
+				<div class="col-md-2 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-7 col-xs-offset-1">
 					<div class="navbar-logo">
 						<a href="/">
-							<img alt="Stapleton Consulting Logo" class="img-responsive" src="/wp-content/uploads/theme-graphics/sc_logo.png">
+							<img alt="Stapleton Consulting Logo" class="img-responsive" src="/wp-content/uploads/theme-graphics/owl-logo-white.png">
 						</a>
 					</div>
 				</div>
-				<div class="col-md-8 col-sm-8 col-xs-0">
+				<div class="col-md-9 col-sm-8 col-xs-0">
 					<div class="navbar-collapse">
 						<?php // Primary navigation menu
 							primary_nav();

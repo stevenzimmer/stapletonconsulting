@@ -1,7 +1,6 @@
 .services {
 
 	h2 {
-		color: rgb($blue_light);
 		font-size: 40px;
 	}
 
@@ -51,8 +50,7 @@
 			}
 
 			h3 {
-				color: $white;
-				font-size: 40px;
+				font-size: 32px;
 			}
 
 			p {

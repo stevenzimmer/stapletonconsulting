@@ -1,0 +1,19 @@
+
+
+{{#shapes}}
+
+	{{#first}}
+
+		.owl-icon {
+			background-image: url('/wp-content/themes/stapleton/prod/sprite/{{{sprite}}}');
+			display: inline-block;
+		}
+
+	{{/first}}
+
+	.owl-icon--{{base}} {
+		width: {{width.outer}}px;
+		height: {{height.outer}}px;
+		background-position: {{position.relative.xy}};
+	}
+{{/shapes}}

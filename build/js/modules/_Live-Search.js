@@ -43,9 +43,9 @@ class Search {
 
 	key_press(e) {
 
-		if ( e.keyCode === 83 && !this.is_overlay_open && !$('input, textarea').is(':focus') ) {
-			this.open_overlay();
-		}
+		// if ( e.keyCode === 83 && !this.is_overlay_open && !$('input, textarea').is(':focus') ) {
+		// 	this.open_overlay();
+		// }
 
 		if ( e.keyCode === 27 && this.is_overlay_open ) {
 			this.close_overlay();
@@ -114,7 +114,7 @@ class Search {
 
 	add_search_html() {
 		$('body').append(`
-			<div class="live-search">
+			<div class="live-search position fixed">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-10 col-sm-offset-1">

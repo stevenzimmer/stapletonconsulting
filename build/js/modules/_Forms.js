@@ -1,41 +1,37 @@
 class Forms {
 	constructor() {
-		this.form = $('#sc_form');
-		this.button = $('#sc_form_button');
+		this.form = $('.sc-form');
+		this.form_leads = $('.leads-hero-right-box');
+		this.form_success = $('.form-success');
 		this.field = $('.form-control');
 		this.form_values = [];
 		this.events();
 	}
 
 	events() {
-		this.button.on('click', this.form_handler.bind(this));
+		this.form.on('submit', this.form_handler.bind(this));
+		this.form_leads.on('submit', this.form_handler_leads.bind(this));
 	}
 
 	form_handler(e) {
 		e.preventDefault();
 
-		this.field.each( (i, val) => {
+		console.log('submitted');
 
-			this.form_values[this.field[i].name] = val.value;
+		this.form.remove();
 
-		});
+		this.form_success.show();
 
-		console.log(this.form_values);
+	}
 
-		var url = sc_data.theme_folder + '/inc/form-submit.php';
+	form_handler_leads(e) {
+		e.preventDefault();
 
-		$.ajax({
-			url: url,
-			type: 'post',
-			data: this.form_values,
-			success: function(data) {
-				console.log('success');
-				console.log('data', data);
-			},
-			error: function() {
-				console.log('error');
-			}
-		});
+		console.log('submitted');
+
+		this.form_leads.remove();
+
+		this.form_success.show();
 	}
 
 }

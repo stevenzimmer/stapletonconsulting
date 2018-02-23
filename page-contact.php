@@ -110,7 +110,7 @@ contact_form('orange');
 								</div>
 							</div>
 							<div class="col-xs-6">
-
+							<span class="owl-icon owl-icon--facebook icon-small"></span>
 							</div>
 						</div>
 					</div>

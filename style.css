@@ -11,7 +11,12 @@ Version: 1.0
 @import 'bootstrap';
 @import './build/css/_variables.css';
 @import './build/css/_mixins.css';
+@import './build/css/_text.css';
+@import './build/css/_positioning.css';
 @import './build/css/_margins.css';
+@import './build/css/_sprite.css';
+@import './build/css/_icons.css';
+@import './build/css/_404.css';
 @import './build/css/_padding.css';
 @import './build/css/_buttons.css';
 @import './build/css/_background.css';
@@ -19,6 +24,7 @@ Version: 1.0
 @import './build/css/_homepage.css';
 @import './build/css/_about.css';
 @import './build/css/_contact.css';
+@import './build/css/_leads.css';
 @import './build/css/_archive-articles.css';
 @import './build/css/_archive-services.css';
 @import './build/css/_single-articles.css';

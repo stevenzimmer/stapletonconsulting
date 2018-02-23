@@ -1,0 +1,33 @@
+.text {
+
+	&-white {
+		color: $white;
+	}
+
+	&-orange {
+		color: rgb($orange);
+	}
+
+	&-blue {
+
+		&-light {
+			color: rgb($blue_light);
+		}
+
+		&-dark {
+			color: rgb($blue_dark);
+		}
+	}
+}
+
+.ls {
+	letter-spacing: 3px;
+}
+
+.uc {
+	text-transform: uppercase;
+}
+
+.bold {
+	font-weight: 600;
+}

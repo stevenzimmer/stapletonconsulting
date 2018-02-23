@@ -1,3 +1,5 @@
-require('./gulp/styles.js');
-require('./gulp/scripts.js');
-require('./gulp/watch.js');
+require('./gulp/styles');
+require('./gulp/scripts');
+require('./gulp/watch');
+require('./gulp/sprites');
+

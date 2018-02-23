@@ -22,6 +22,7 @@
 	&-bg {
 		background-image: url(/wp-content/uploads/theme-graphics/about-us-success-bg.jpg);
 		opacity: 0;
+		transition: .3s opacity ease-in-out;
 	}
 
 	&:hover {

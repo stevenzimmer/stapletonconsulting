@@ -18,7 +18,15 @@ while (have_posts()) :
 ?>
 
 <header class="article-hero page-hero relative">
-	<div class="position absolute article-hero-bg bg-cover parallax" style="background-image: url(<?php the_post_thumbnail_url() ?>);"></div>
+	<div class="position absolute article-hero-bg bg-cover parallax" style="background-image: url(
+		<?php
+			if ( has_post_thumbnail() ) :
+				the_post_thumbnail_url();
+			else :
+				echo '/wp-content/uploads/theme-graphics/articles-hero-test.jpg';
+			endif;
+
+		?>);"></div>
 	<div class="container relative">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">

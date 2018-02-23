@@ -4,8 +4,8 @@
 		<div id="quote-carousel" class="carousel quote-carousel" data-ride="carousel">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="quote-symbol text-center">
-						<span>"</span>
+					<div class="quote-symbol text-center mb40">
+						<span class="icon-small owl-icon owl-icon--quotes "></span>
 					</div>
 
 					<div class="row mb40">
@@ -16,33 +16,34 @@
 							<?php
 								$i = 0;
 
-								$quotes = array(
-									array(
-										'Cras ac dapibus nisl, at vulputate elit. Mauris a efficitur lectus, eget mattis enim. Maecenas purus felis, convallis eget elementum sit amet, interdum a eros. Fusce tempus urna sed enim gravida, quis tempor diam vulputate.'
-									),
-									array(
-										'Donec augue tortor, iaculis at commodo at, tempus id nisl. Nulla ac mi et mauris cursus ullamcorper. Ut imperdiet sed ligula sit amet egestas. Nam ac ornare arcu. Nullam quis bibendum leo.'
-									),
-									array(
-										'Praesent dictum magna eu pretium aliquet. Integer pharetra diam id facilisis volutpat. Curabitur tristique, ligula sit amet tincidunt tincidunt, nulla nisi lobortis enim, quis rutrum mauris enim id nunc.'
-									)
+								$args = array(
+
+									'post_type' => 'quotes',
+									'posts_per_page' => 3
 								);
 
-								foreach ( $quotes as $quote ) :
-							?>
+								$quotes = new WP_Query($args);
 
+								if ( $quotes->have_posts() ) :
+									while ( $quotes->have_posts() ) :
+										$quotes->the_post();
+
+
+							?>
 								<div class="item <?php if ($i == 0) : echo 'active'; endif; ?> absolute">
 									<div class="quote-text mb40">
 										<p>
-											<?php echo $quote[0]; ?>
+											<?php the_content(); ?>
 										</p>
 									</div>
 								</div>
 
 							<?php
 								$i++;
-								endforeach;
+								endwhile;
+								endif;
 							?>
+
 							</div>
 						</div>
 					</div>
@@ -53,56 +54,45 @@
 						<?php
 
 							$i = 0;
-							$indicators = array(
 
-								array(
-									'http://via.placeholder.com/50x50',
-									'John Doe',
-									'title goes here'
-								),
-								array(
-									'http://via.placeholder.com/50x50',
-									'Jane Does',
-									'Janes title here'
-								),
-								array(
-									'http://via.placeholder.com/50x50',
-									'Johnny Mabry',
-									'Johnnys title here'
-								),
-							);
-
-							foreach ( $indicators as $indicator ) :
-								$thumbnail = $indicator[0];
-								$name = $indicator[1];
-								$title = $indicator[2];
+							if ( $quotes->have_posts() ) :
+									while ( $quotes->have_posts() ) :
+										$quotes->the_post();
 						?>
-						<div class="<?php if ($i == 0) : echo 'active'; endif;?>">
-							<div class="col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
-								<div class="row">
-									<div data-target="#quote-carousel" data-slide-to="<?php echo $i ?>">
-										<div class="quote-citation mb40">
-											<div class="col-xs-4">
-												<div class="row">
-													<img alt="<?php echo $name ?> thumbnail" class="img-responsive center-block" src="<?php echo $thumbnail; ?>">
+							<div class="<?php if ($i == 0) : echo 'active'; endif;?>">
+								<div class="col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
+									<div class="row">
+										<div data-target="#quote-carousel" data-slide-to="<?php echo $i ?>">
+											<div class="quote-citation mb40">
+												<div class="col-xs-4">
+													<div class="row">
+														<img alt="<?php the_title() ?> thumbnail" class="img-responsive center-block" src="<?php
+														if (has_post_thumbnail()) :
+															the_post_thumbnail_url();
+														else :
+															echo 'http://via.placeholder.com/50x50';
+														endif;
+													 ?>">
+													</div>
 												</div>
-											</div>
-											<div class="col-xs-8">
-												<div class="row">
-													<p><?php echo $name; ?></p>
-													<span class="ls uc"><?php echo $title; ?></span>
+												<div class="col-xs-8">
+													<div class="row">
+														<p><?php the_title(); ?></p>
+														<span class=""><?php the_excerpt(); ?></span>
+													</div>
 												</div>
+												<div class="clearfix"></div>
 											</div>
-											<div class="clearfix"></div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
 						<?php
 							$i++;
-							endforeach;
+							endwhile;
+							endif;
+							wp_reset_postdata();
 						?>
 					</div>
 				</div>

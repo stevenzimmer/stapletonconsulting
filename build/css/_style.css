@@ -7,23 +7,8 @@ body {
   font-size: 18px;
 }
 
-h1,h2,h3,.quote-symbol,.search-term,.link-list-item {
+h1,h2,h3,.quote-symbol,.search-term,.link-list-item,.form-control {
 	font-family: 'Lora', serif;
-}
-
-.relative {
-	position: relative;
-}
-
-.absolute {
-	position: absolute;
-}
-
-.position {
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
 }
 
 .full-width {
@@ -46,11 +31,6 @@ h1,h2,h3,.quote-symbol,.search-term,.link-list-item {
 	background-size: cover;
 }
 
-.bold {
-	font-weight: 600;
-}
-
-
 
 h1,h2,h3,p {
 	margin-top: 0;
@@ -61,16 +41,15 @@ h3 {
 	font-size: 20px;
 }
 
-a {
-	transition: all .3s ease-in-out;
-}
-
-.page-hero {
-	padding: 200px 0;
+header {
 
 	h1 {
 		font-size: 55px;
 	}
+}
+
+.page-hero {
+	padding: 200px 0;
 
 	&-bg {
 		background-size: cover;
@@ -157,29 +136,7 @@ a {
 	filter: blur(5px);
 }
 
-.ls {
-	letter-spacing: 2px;
-}
 
-.uc {
-	text-transform: uppercase;
-}
-
-.text-white {
-	color: $white;
-}
-
-.text-orange {
-	color: rgb($orange);
-}
-
-.text-blue-light {
-	color: rgb($blue_light)
-}
-
-.text-blue-dark {
-	color: rgb($blue_dark)
-}
 
 .subheader {
 	font-size: 40px;

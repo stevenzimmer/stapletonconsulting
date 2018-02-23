@@ -1,5 +1,9 @@
 .bg {
 
+	&-white {
+		background-color: $white;
+	}
+
 	&-purple {
 		background-color: rgb($purple);
 	}

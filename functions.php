@@ -129,15 +129,15 @@
 			</div>
 
 			<div class="row">
-				<form class="form-horizontal sc-form sc-form-<?php echo $color; ?>" id="sc_form">
+				<form action="" class="form-horizontal sc-form sc-form-<?php echo $color; ?>" id="sc_form" >
 					<div class="col-sm-4">
 						<div class="form-group">
-							<input name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name" required>
+							<input name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name" title="Please enter your first name" required>
 						</div>
 					</div>
 					<div class="col-sm-4 col-sm-offset-1">
 						<div class="form-group">
-							<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Last Name">
+							<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Last Name" title="Please enter your last name" required>
 						</div>
 					</div>
 
@@ -145,14 +145,13 @@
 
 					<div class="col-sm-4">
 						<div class="form-group">
-							<div class="">
-								<input name="email" type="email" class="form-control" id="email" placeholder="Email">
-							</div>
+							<input name="email" type="email" class="form-control" id="email" placeholder="Email" title="Please enter a valid email address" required>
+
 						</div>
 					</div>
 					<div class="col-sm-4 col-sm-offset-1">
 						<div class="form-group">
-							<input name="telephone" type="telephone" class="form-control" id="phone" placeholder="Phone">
+							<input name="telephone" type="telephone" class="form-control" id="phone" placeholder="Phone" title="Please enter a valid contact number" required>
 						</div>
 					</div>
 
@@ -179,6 +178,10 @@
 					</div>
 					<div class="clearfix"></div>
 				</form>
+				<div class="form-success">
+					<h2 class="mb20 text-white">Thank you!</h2>
+					<p class="text-white">We will be in touch shortly!</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -203,33 +206,32 @@
 				<?php
 					$processes = array(
 						array(
-							'eye',
-							'analysis'
+							'analysis',
 						),
+
 						array(
-							'wheel',
-							'planning'
+							'strategy',
 						),
+
 						array(
-							'lightbulb',
-							'strategy'
+							'planning',
 						),
+
 						array(
-							'trophy',
-							'execution'
+							'execution',
 						)
 					);
 
 					foreach ( $processes as $process ) :
 
 						$icon = $process[0];
-						$title = $process[1];
 				?>
 
 					<div class="col-sm-3">
 						<div class="process-item mb40">
-							<img alt="<?php echo $title ?> icon" class="mb20" height="70" src="/wp-content/uploads/theme-graphics/<?php echo $icon ?>_icon.png">
-							<p class="ls uc bold"><?php echo $title; ?></p>
+							<span class="icon-small owl-icon owl-icon--process-<?php echo $icon ?>"></span>
+
+							<p class="ls uc bold"><?php echo $icon; ?></p>
 						</div>
 					</div>
 

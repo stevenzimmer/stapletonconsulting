@@ -1,14 +1,12 @@
 .article {
 
 	&-body {
-		color: rgb($text_light);
 
 		p {
 			font-size: 16px;
 		}
 
 		&-quote {
-			background-size: cover;
 			background-image: url(/wp-content/uploads/theme-graphics/about-us-success-bg.jpg);
 		}
 	}
@@ -16,9 +14,7 @@
 	&-intro {
 
 		p {
-			color: rgb($blue_light);
-			font-weight: 600;
-			font-size: 20px
+			font-size: 20px;
 		}
 	}
 }

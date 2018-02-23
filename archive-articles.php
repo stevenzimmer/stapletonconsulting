@@ -10,7 +10,7 @@ get_header();
 			<div class="col-sm-10 col-sm-offset-1">
 				<h1 class="mb40 text-white">Articles</h1>
 				<p class="mb20 text-white">Our personal insight on stuff and things.</p>
-				<a href="#" class="btn btn-outline btn-outline-orange">contact us</a>
+				<a href="#contact" class="btn btn-outline btn-outline-orange">contact us</a>
 			</div>
 		</div>
 	</div>
@@ -214,7 +214,7 @@ get_header();
 					<div class="featured-section-inner featured-section-inner-single">
 						<div class="col-xs-10 col-xs-offset-1">
 							<h2 class="text-white subheader mb40">Call to Action</h2>
-							<a href="" class="btn btn-outline btn-outline-white">contact us</a>
+							<a href="#contact" class="btn btn-outline btn-outline-white">contact us</a>
 						</div>
 
 					</div>
