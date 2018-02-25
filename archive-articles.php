@@ -17,74 +17,69 @@ get_header();
 </header>
 
 <section class="section-half bg-orange articles-archive-categories">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-1 col-xs-3">
-				<a href="#" class="text-blue-dark">Previous</a>
+				<!-- <a href="#" class="text-blue-dark">Previous</a> -->
 			</div>
 			<div class="col-sm-10 col-xs-6">
 				<div class="row">
+
+				<?php
+
+					$arr = array(
+						'type' => 'articles',
+						'orderby' => 'name',
+						'order'	=> 'DESC',
+						'hide_empty' => 1
+					);
+					$categories = get_categories($arr);
+
+					foreach ($categories as $category) :
+
+				?>
 					<div class="col-sm-3">
 						<div class="row">
-							<table class="articles-archive-categories-item active">
-								<tr>
-									<td align="center">
-										<a href="#" class="text-blue-dark">
-											Business Strategy
-										</a>
-									</td>
-								</tr>
-							</table>
+							<div class="articles-archive-categories-item">
+
+								<a href="<?php echo get_category_link( $category->term_id ) ?>" class="text-blue-dark">
+									<?php echo $category->name; ?>
+								</a>
+
+							</div>
 						</div>
 					</div>
-					<div class="col-sm-3">
-						<div class="row">
-							<table class="articles-archive-categories-item">
-								<tr>
-									<td align="center">
-										<a href="#" class="text-blue-dark">
-											Target Markets
-										</a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="row">
-							<table class="articles-archive-categories-item">
-								<tr>
-									<td align="center">
-										<a href="#" class="text-blue-dark">
-											Positioning
-										</a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="row">
-							<table class="articles-archive-categories-item">
-								<tr>
-									<td align="center">
-										<a href="#" class="text-blue-dark">
-											Insight
-										</a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
+
+				<?php
+					endforeach;
+				?>
 
 				</div>
 			</div>
 			<div class="col-sm-1 col-xs-3">
-				<a href="#" class="text-blue-dark">View All</a>
+
 			</div>
 		</div>
 	</div>
 </section>
+
+<?php
+
+	$arr = array(
+		'post_type' => 'articles',
+		'posts_per_page' => 1
+	);
+
+	$articles = new WP_Query( $arr );
+
+	while ($articles->have_posts()) :
+		$articles->the_post();
+
+		$categories = get_the_category();
+
+		$category = $categories[0]->name;
+
+?>
 
 <section>
 	<div class="row">
@@ -92,7 +87,14 @@ get_header();
 			<div class="row">
 				<div class="featured-section">
 					<div class="featured-section-inner featured-section-inner-single">
-						<div class="articles-archive-half-left-bg bg-cover position absolute"></div>
+						<div class="articles-archive-half-left-bg bg-cover position absolute" <?php
+							if (has_post_thumbnail()) :
+						?>
+							style="background-image: url(<?php the_post_thumbnail_url(); ?>)"
+						<?php
+
+							endif;
+						?>></div>
 					</div>
 				</div>
 			</div>
@@ -101,12 +103,14 @@ get_header();
 			<div class="row">
 				<div class="featured-section">
 					<div class="featured-section-inner featured-section-inner-single">
-						<div class="col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+						<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 							<div class="row">
-								<span class="ls uc text-orange bold">subject</span>
-								<h2 class="mb40 mt20">1/2 page right</h2>
-								<p class="mb40">Few things are as far-reaching in their implications as a well-crafted positioning statement.</p>
-								<a href="#" class="ls uc text-orange">read more</a>
+								<span class="ls uc text-orange bold">
+									<?php echo $category; ?>
+								</span>
+								<h2 class="mb20 mt20"><?php the_title(); ?></h2>
+								<p class="mb20"><?php the_excerpt(); ?></p>
+								<a href="<?php the_permalink(); ?>" class="ls uc text-orange">read more</a>
 							</div>
 						</div>
 					</div>
@@ -117,32 +121,82 @@ get_header();
 	</div>
 </section>
 
+<?php
+	endwhile;
+	wp_reset_postdata();
+
+
+
+	$arr = array(
+		'post_type' => 'articles',
+		'posts_per_page' => 1,
+		'offset' => 1
+	);
+
+	$articles = new WP_Query( $arr );
+
+	while ($articles->have_posts()) :
+		$articles->the_post();
+
+		$categories = get_the_category();
+
+		$category = $categories[0]->name;
+?>
+
 <section class="featured-post relative">
-	<div class="featured-post-bg absolute position bg-cover"></div>
+	<div class="featured-post-bg absolute position bg-cover"
+		<?php
+			if (has_post_thumbnail()) :
+		?>
+			style="background-image: url(<?php the_post_thumbnail_url(); ?>)"
+		<?php
+
+			endif;
+		?>></div>
 	<div class="bg-orange-opaque absolute position featured-post-bg-overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-1">
-				<span class="uc ls text-white bold">subject</span>
-				<h2 class="text-white mt20 mb40 subheader">Featured Post</h2>
-				<p class="text-white mb40">Few things are as far-reaching in their implications as a well-crafted positioning statement. Despite what you may have heard, a positioning statement is not (just) the basis for your communications. Your positioning statement is at the heart of how you create value as an organization.</p>
-				<a href="#" class="ls uc text-white">read more</a>
+				<span class="uc ls text-white bold"><?php echo $category; ?></span>
+				<h2 class="text-white mt20 mb40 subheader"><?php the_title(); ?></h2>
+				<p class="text-white mb40"><?php the_excerpt(); ?></p>
+				<a href="<?php the_permalink(); ?>" class="ls uc text-white">read more</a>
 			</div>
 		</div>
 	</div>
 </section>
 
+<?php
+	endwhile;
+	wp_reset_postdata();
+
+	$arr = array(
+		'post_type' => 'articles',
+		'posts_per_page' => 1,
+		'offset' => 2
+	);
+
+	$articles = new WP_Query( $arr );
+
+	while ($articles->have_posts()) :
+		$articles->the_post();
+
+		$categories = get_the_category();
+
+		$category = $categories[0]->name;
+?>
+
 <section>
 	<div class="row">
 		<div class="col-sm-6 relative">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+				<div class="col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 					<div class="featured-section">
 						<div class="featured-section-inner featured-section-inner-single">
-							<span class="ls uc text-orange">subject</span>
-							<h2 class="mb40 mt20">1/2 page right</h2>
-							<p class="mb40">Few things are as far-reaching in their implications as a well-crafted positioning statement.</p>
-							<a href="#" class="ls uc text-orange">read more</a>
+							<span class="ls uc text-orange"><?php echo $category; ?></span>
+							<h2 class="mb40 mt20"><?php the_title(); ?></h2>
+							<p class="mb40"><?php the_excerpt(); ?></p>
+							<a href="<?php the_permalink(); ?>" class="ls uc text-orange">read more</a>
 						</div>
 					</div>
 				</div>
@@ -153,7 +207,14 @@ get_header();
 			<div class="row relative">
 				<div class="featured-section">
 					<div class="featured-section-inner featured-section-inner-single">
-						<div class="overlay-bg-half bg-cover position absolute"></div>
+						<div class="overlay-bg-half bg-cover position absolute"
+							<?php
+								if (has_post_thumbnail()) :
+							?>
+								style="background-image: url(<?php the_post_thumbnail_url(); ?>)"
+							<?php
+								endif;
+							?>></div>
 					</div>
 				</div>
 			</div>
@@ -161,37 +222,90 @@ get_header();
 	</div>
 </section>
 
+<?php
+	endwhile;
+	wp_reset_postdata();
+
+?>
+
 <section>
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="featured-section">
+
+					<?php
+						$arr = array(
+							'post_type' => 'articles',
+							'posts_per_page' => 1,
+							'offset' => 3
+						);
+
+						$articles = new WP_Query( $arr );
+
+						while ($articles->have_posts()) :
+							$articles->the_post();
+
+							$categories = get_the_category();
+
+							$category = $categories[0]->name;
+					?>
+
 					<div class="featured-section-inner featured-section-inner-double">
-						<div class="articles-archive-featured-double-bg absolute position bg-cover"></div>
+						<div class="articles-archive-featured-double-bg absolute position bg-cover"
+							<?php
+								if (has_post_thumbnail()) :
+							?>
+								style="background-image: url(<?php the_post_thumbnail_url(); ?>)"
+							<?php
+								endif;
+							?>></div>
 						<div class="overlay-bg absolute position"></div>
-						<div class="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+						<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 							<div class="">
-								<span class="text-white ls uc bold">subject</span>
-								<h2 class="text-white subheader mt20 mb40">1/2 Page Overly, 2 Stories</h2>
-								<p class="mb40 text-white">Few things are as far-reaching in their implications as a well-crafted positioning statement.</p>
-								<a href="#" class="ls uc text-white">read more</a>
+								<span class="text-white ls uc bold"><?php echo $category; ?></span>
+								<h2 class="text-white subheader mt20 mb40"><?php the_title(); ?></h2>
+								<p class="mb40 text-white"><?php the_excerpt(); ?></p>
+								<a href="<?php the_permalink(); ?>" class="ls uc text-white">read more</a>
 							</div>
 						</div>
 					</div>
+
+					<?php
+						endwhile;
+						wp_reset_postdata();
+					?>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="row">
+
+			<?php
+				$arr = array(
+					'post_type' => 'articles',
+					'posts_per_page' => 1,
+					'offset' => 4
+				);
+
+				$articles = new WP_Query( $arr );
+
+				while ($articles->have_posts()) :
+					$articles->the_post();
+
+					$categories = get_the_category();
+					$category = $categories[0]->name;
+			?>
+
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="featured-section">
 							<div class="featured-section-inner featured-section-inner-single">
-								<div class="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+								<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 									<div class="row">
-										<span class="text-orange bold ls uc">subject</span>
-										<h2 class="subheader mt20 mb40">1/4 Page Right</h2>
-										<a href="#" class="bold ls uc text-orange">read more</a>
+										<span class="text-orange bold ls uc"><?php echo $category; ?></span>
+										<h2 class="mt20 mb40"><?php the_title(); ?></h2>
+										<a href="<?php the_permalink(); ?>" class="bold ls uc text-orange">read more</a>
 									</div>
 								</div>
 							</div>
@@ -203,17 +317,32 @@ get_header();
 					<div class="row">
 						<div class="featured-section">
 							<div class="featured-section-inner featured-section-inner-single">
-								<div class="articles-archive-featured-single-bg absolute position bg-cover"></div>
+								<div class="articles-archive-featured-single-bg absolute position bg-cover"
+
+								<?php
+									if (has_post_thumbnail()) :
+								?>
+									style="background-image: url(<?php the_post_thumbnail_url(); ?>)"
+								<?php
+									endif;
+								?>></div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<?php
+					endwhile;
+					wp_reset_postdata();
+				?>
+
+
 			</div>
 			<div class="row bg-orange">
 				<div class="featured-section">
 					<div class="featured-section-inner featured-section-inner-single">
 						<div class="col-xs-10 col-xs-offset-1">
-							<h2 class="text-white subheader mb40">Call to Action</h2>
+							<h2 class="text-white subheader mb40">Get in Touch</h2>
 							<a href="#contact" class="btn btn-outline btn-outline-white">contact us</a>
 						</div>
 

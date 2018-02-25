@@ -5,6 +5,15 @@
 
 get_header();
 
+$hero_header = get_field('header');
+$hero_paragraph = get_field('paragraph');
+$form_title = get_field('form_title');
+$form_thank_you = get_field('form_thank_you');
+
+$wyg_title = get_field('wyg_title');
+$wyg_paragraph = get_field('wyg_paragraph');
+$wyg_bg = get_field('wyg_bg');
+
 ?>
 <header class="relative leads-hero">
 	<div class="position absolute bg-cover leads-hero-bg parallax"></div>
@@ -21,25 +30,20 @@ get_header();
 					</div>
 				</div>
 				<div class="row text-center mb40">
-					<h1 class="text-orange">Advice crafted from experience available at your finger tips.</h1>
+					<h1 class="text-orange"><?php echo $hero_header; ?></h1>
 				</div>
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="">
 							<div class="leads-hero-left mt20">
-								<p class="text-white">A supporting statement of your value proposition. Entive your visitor to keep reading the heigh level details of your offering.</p>
-								<ul class="text-white">
-									<li class="mb20">Ut entim ad minim veniam, quis nostrud</li>
-									<li class="mb20">Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-									<li class="mb20">Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-								</ul>
+								<?php echo $hero_paragraph; ?>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="leads-hero-right bg-white">
 							<div class="leads-hero-right-box">
-								<h2 class="mb20 text-blue-dark">Get Our e-Book</h2>
+								<h2 class="mb20 text-blue-dark"><?php echo $form_title; ?></h2>
 								<form class="sc-form-leads" id="sc_form_ebook">
 									<div class="mb20">
 										<input name="name" type="text" class="form-control" id="first_name" placeholder="Name" required>
@@ -55,7 +59,7 @@ get_header();
 
 							</div>
 							<div class="form-success form-success-leads text-center bg-white">
-								<h2 class="mb20">Thank you!</h2>
+								<?php echo $form_thank_you; ?>
 							</div>
 						</div>
 					</div>
@@ -67,17 +71,25 @@ get_header();
 </header>
 
 <section class="bg-blue-light leads-section relative">
-	<div class="leads-section-bg position absolute bg-cover"></div>
+	<div class="leads-section-bg position absolute bg-cover"
+
+		<?php
+			if (!empty($wyg_bg)) :
+		?>
+			style="background-image: url(<?php echo $wyg_bg; ?>)"
+		<?php
+			endif;
+		?>
+
+	></div>
 	<div class="container relative">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="row section">
 					<div class="col-md-6"></div>
 					<div class="col-md-6">
-						<h2 class="text-white mb40">What you Get</h2>
-						<p class="text-white mb20">There's almost nothing more important than knowing why you win and lose business, but it's hard to get honest answers from customers and lost prospects if you interview them directly. Our win-loss analysis digs deep into the real reasons you're winning and losing business.</p>
-
-						<p class="text-white">PLUS, we'll give you a framework for continuing your win-loss analysis overtime, so you can continue to accelerate your win rates.</p>
+						<h2 class="text-white mb40"><?php echo $wyg_title ?></h2>
+						<?php echo $wyg_paragraph ?>
 					</div>
 				</div>
 			</div>

@@ -30,14 +30,28 @@ contact_form('orange');
 				<p>For a quote or specific requests, see form below</p>
 			</div>
 			<div class="row pb40">
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<div class="row">
+						<div class="col-sm-4">
+							<div class="text-center mb20">
+								<span class="icon-small owl-icon owl-icon--phone"></span>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+
 						<p>800 123 4567</p>
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<div class="row">
-						<a href="#">Email Us</a>
+						<div class="col-sm-5 text-center">
+							<div class=" mb20">
+								<span class="icon-small owl-icon owl-icon--email"></span>
+							</div>
+							<a href="#">Email Us</a>
+						</div>
+						<div class="clearfix"></div>
+
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -53,28 +67,23 @@ contact_form('orange');
 	<div class="section-half"></div>
 </section>
 <?php
-	$i = 1;
-	$leaders = array(
-		array(
-			'Michael Stapleton',
-			'CEO &amp; Founder',
-		),
-		array(
-			'Ryan Helmstetler',
-			'Consultant'
-		),
-		array(
-			'Darby Williams',
-			'Consultant'
-		)
+
+
+	$arr = array(
+		'post_type' => 'consultants',
+		'posts_per_page' => -1,
+		'order' => 'ASC'
 	);
 
-	foreach ( $leaders as $leader ) :
-		$name = $leader[0];
-		$title = $leader[1];
-		$lc_name = strtolower($name);
-		$img = str_replace(' ', '-', $lc_name);
-		$split = explode(' ', $lc_name);
+	$leaders = new WP_Query( $arr );
+
+	$i = 1;
+
+	while ($leaders->have_posts()) :
+		$leaders->the_post();
+
+		$name = explode(' ', get_the_title());
+		$f_name = $name[0];
 
 		$bg = '';
 		$position_right = '';
@@ -100,33 +109,40 @@ contact_form('orange');
 				<div class="col-sm-6 <?php echo $position_right; ?>">
 					<div class="pt40">
 						<div class="row pb40">
-							<h2 class="text-blue-dark"><?php echo $name ?></h2>
-							<h4 class="text-orange bold"><?php echo $title; ?></h4>
+							<h2 class="text-blue-dark"><?php the_title(); ?></h2>
+							<h4 class="text-orange bold"><?php the_excerpt(); ?></h4>
 						</div>
 						<div class="row">
-							<div class="col-xs-6">
+							<div class="col-sm-5">
 								<div class="row">
-									<a href="#" class="btn btn-outline btn-outline-orange">contact <?php echo $split[0]; ?></a>
+									<a href="#" class="btn btn-outline btn-outline-orange mb40">contact <?php echo $f_name; ?></a>
 								</div>
+
 							</div>
-							<div class="col-xs-6">
-							<span class="owl-icon owl-icon--facebook icon-small"></span>
+
+							<div class="col-sm-7">
+								<span class="icon-small owl-icon owl-icon--facebook"></span>
+
+								<span class="icon-small owl-icon owl-icon--twitter"></span>
+
+								<span class="icon-small owl-icon owl-icon--linkedin"></span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-5 <?php echo $position_left; ?>">
 					<div class="row">
-						<img class="img-responsive center-block" src="/wp-content/uploads/theme-graphics/<?php echo $img ?>.png">
+						<img class="img-responsive center-block" src="<?php the_post_thumbnail_url(); ?>">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
 <?php
 	$i++;
-	endforeach;
+	endwhile;
+	wp_reset_postdata();
+	get_footer();
 ?>
-
-<?php get_footer(); ?>

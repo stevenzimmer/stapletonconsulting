@@ -143,17 +143,8 @@
 	&-articles {
 
 		&-bg {
-			background-image: url(/wp-content/uploads/theme-graphics/about-us-articles-bg.jpg);
 			opacity: 0;
 			transition: .3s opacity ease-in-out;
-		}
-
-		&:hover {
-
-			.about-us-articles-bg {
-				opacity: 1;
-			}
-
 		}
 
 		&-btn {

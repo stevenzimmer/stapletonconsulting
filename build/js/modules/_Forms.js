@@ -16,8 +16,6 @@ class Forms {
 	form_handler(e) {
 		e.preventDefault();
 
-		console.log('submitted');
-
 		this.form.remove();
 
 		this.form_success.show();
@@ -26,8 +24,6 @@ class Forms {
 
 	form_handler_leads(e) {
 		e.preventDefault();
-
-		console.log('submitted');
 
 		this.form_leads.remove();
 

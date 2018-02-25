@@ -55,7 +55,7 @@ while (have_posts()) :
 	<div class="container relative">
 		<div class="row ">
 			<div class="col-sm-8 col-sm-offset-2">
-				<h2 class="mb40 text-center">Related Services</h2>
+				<h2 class="mb40 text-center text-blue-dark">Related Services</h2>
 
 				<?php
 					$services = new WP_Query( array(

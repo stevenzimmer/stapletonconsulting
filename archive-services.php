@@ -36,32 +36,24 @@
 					$services_title_lowercase = strtolower( get_the_title() );
 					$services_icon = html_entity_decode(str_replace( array(' '), array('_'), $services_title_lowercase));
 					$services_icon_wash = str_replace('_&_', '_', $services_icon);
-
-
 		?>
 
 			<div class="col-md-4 col-sm-6">
 				<div class="row">
 					<a href="<?php the_permalink(); ?>">
-						<div class="services-item">
-							<div class="services-item-inner relative">
-								<span class="owl-icon icon-small owl-icon--<?php echo $services_icon_wash;  ?>_gold"></span>
-								<h3><?php the_title(); ?></h3>
-							</div>
+						<div class="services-item relative">
 							<div class="services-item-overlay-bg position absolute"></div>
-							<div class="services-item-overlay absolute position section-half">
-								<div class="col-sm-10 col-sm-offset-1">
-									<div class="services-item-overlay-wrapper relative">
-										<div class="full-width services-item-overlay-wrapper-title relative">
-											<h3 class="mb20"><?php the_title() ?></h3>
-										</div>
-										<div class="full-width services-item-overlay-wrapper-excerpt absolute">
-											<p><?php the_excerpt(); ?></p>
-										</div>
-										<div class="full-width services-item-overlay-wrapper-arrow absolute">
-											<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
-										</div>
-									</div>
+							<div class="services-item-overlay absolute position section-half"></div>
+
+							<div class="services-item-icon absolute">
+								<span class="owl-icon icon-small owl-icon--<?php echo $services_icon  ?>_gold"></span>
+							</div>
+
+							<div class="services-item-text absolute">
+								<h3 class="mb40"><?php the_title(); ?></h3>
+								<div class="services-item-text-para">
+									<p><?php the_excerpt(); ?></p>
+									<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
 								</div>
 							</div>
 						</div>
@@ -96,11 +88,11 @@
 	?>
 
 		<div class="row section">
-			<div class="col-sm-4 col-sm-offset-2 <?php
+			<div class="col-sm-5 col-sm-offset-1 <?php
 				if ( $i % 2 === 0 ) {
 				echo 'col-sm-push-6';
 				} ?>">
-				<div class="section-half">
+				<div class="">
 					<h2 class="mb40 text-blue-light"><?php the_title(); ?></h2>
 					<p class="mb40">
 						<?php the_excerpt(); ?>
@@ -112,7 +104,11 @@
 				if ( $i % 2 === 0 ) {
 				echo 'col-sm-pull-5';
 				} ?>">
-				<img class="img-responsive" src="<?php the_post_thumbnail_url(); ?>">
+				<div class="case-studies-bg full-width">
+					<div class="case-studies-bg-overlay bg-cover absolute position" style="background-image: url(<?php the_post_thumbnail_url(); ?>)"></div>
+					<img class="img-responsive" >
+				</div>
+
 			</div>
 		</div>
 

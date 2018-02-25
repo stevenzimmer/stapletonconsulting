@@ -141,21 +141,3 @@ header {
 .subheader {
 	font-size: 40px;
 }
-
-.get-started {
-
-	&:hover {
-
-		.get-started-bg {
-			opacity: 1;
-		}
-	}
-
-	&-bg {
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-image: url(/wp-content/uploads/theme-graphics/get-started-bg.jpg);
-		opacity: 0;
-		transition: opacity .3s ease-in-out;
-	}
-}

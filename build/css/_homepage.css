@@ -20,22 +20,29 @@
 .clients {
 
 	&-bg {
-		background-image: url(/wp-content/uploads/theme-graphics/about-us-success-bg.jpg);
+		/*background-image: url(/wp-content/uploads/theme-graphics/about-us-success-bg.jpg);*/
 		opacity: 0;
 		transition: .3s opacity ease-in-out;
 	}
 
 	&:hover {
 
-		img {
+		/*img {
 			opacity: .4;
 
 			&:hover {
 				opacity: 1;
 			}
-		}
+		}*/
 
 		.clients-bg {
+			opacity: 1;
+		}
+	}
+
+	&-logo {
+
+		&:hover {
 			opacity: 1;
 		}
 	}
@@ -67,6 +74,24 @@
 		display: table;
 		width: 100%;
 		background-color: #fff;
+
+		&-icon {
+			top: 40px;
+			width: 100%;
+		}
+
+		&-text {
+			top: 160px;
+			width: 100%;
+			padding: 0 20px;
+			transition: all .3s;
+
+
+			&-para {
+				opacity: 0;
+				color: rgb($rgb_white);
+			}
+		}
 
 		&-inner {
 			vertical-align: middle;
@@ -106,6 +131,18 @@
 
 				&-item {
 
+					&-icon {
+						opacity: 0;
+					}
+
+					&-text {
+						top: 40px;
+
+						&-para {
+							opacity: 1;
+						}
+					}
+
 					&-inner {
 						opacity: 0;
 					}
@@ -136,6 +173,18 @@
 		}
 	}
 }
+
+.get-started {
+
+	&-bg {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url(/wp-content/uploads/theme-graphics/get-started-bg.jpg);
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+	}
+}
+
 
 .specs {
 
@@ -219,6 +268,23 @@
 				&.active {
 					opacity: 1;
 					position: relative;
+				}
+			}
+		}
+	}
+
+	&.bg-orange {
+
+		.quote {
+
+			&-text {
+				color: rgb($rgb_white);
+			}
+
+			&-citation {
+
+				p,span {
+					color: rgb($blue_dark);
 				}
 			}
 		}

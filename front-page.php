@@ -139,28 +139,29 @@
 				<div class="row">
 
 				<?php
-					$clients = array(
-							'maven',
-							'fond',
-							'greenhouse'
+
+					$args = array(
+						'post_type' => 'case-studies',
+						'posts_per_page' => 3
 					);
 
-					foreach ( $clients as $client ) :
+					$clients = new WP_Query( $args );
+
+					while ( $clients->have_posts() ) :
+						$clients->the_post();
 				?>
 
-				<div class="col-sm-4">
-					<div class="mb40">
-						<img alt="<?php echo $client ?> logo" class="mb40" height="50" src="/wp-content/uploads/theme-graphics/<?php echo $client ?>-white.<?php if ($client == 'greenhouse') :
-							echo 'svg';
-						else:
-							echo 'png';
-						endif; ?>">
+					<div class="col-sm-4">
+						<div class="mb40 clients-logo" data-bg="<?php the_post_thumbnail_url(); ?>">
+							<a href="<?php the_permalink(); ?>">
+								<img alt="<?php the_title() ?> logo" class="mb40" height="50" src="<?php echo get_field('client_logo_white'); ?>">
+							</a>
+						</div>
 					</div>
 
-				</div>
-
 				<?php
-					endforeach;
+					endwhile;
+					wp_reset_postdata();
 				?>
 
 				</div>
@@ -200,26 +201,19 @@
 			<div class="col-md-4">
 				<div class="row">
 					<a href="<?php the_permalink(); ?>">
-						<div class="services-item">
-							<div class="services-item-inner relative">
-								<span class="owl-icon icon-small owl-icon--<?php echo $services_icon  ?>_gold"></span>
-
-								<h3><?php the_title(); ?></h3>
-							</div>
+						<div class="services-item relative">
 							<div class="services-item-overlay-bg position absolute"></div>
-							<div class="services-item-overlay absolute position section-half">
-								<div class="col-sm-12">
-									<div class="services-item-overlay-wrapper relative">
-										<div class="full-width services-item-overlay-wrapper-title relative">
-											<h3 class="mb20"><?php the_title() ?></h3>
-										</div>
-										<div class="full-width services-item-overlay-wrapper-excerpt absolute">
-											<p><?php the_excerpt(); ?></p>
-										</div>
-										<div class="full-width services-item-overlay-wrapper-arrow absolute">
-											<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
-										</div>
-									</div>
+							<div class="services-item-overlay absolute position section-half"></div>
+
+							<div class="services-item-icon absolute">
+								<span class="owl-icon icon-small owl-icon--<?php echo $services_icon  ?>_gold"></span>
+							</div>
+
+							<div class="services-item-text absolute">
+								<h3 class="mb40"><?php the_title(); ?></h3>
+								<div class="services-item-text-para">
+									<p><?php the_excerpt(); ?></p>
+									<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
 								</div>
 							</div>
 						</div>
@@ -300,7 +294,7 @@
 
 
 <?php
-	get_template_part('partials/quotes');
+	quotes('orange');
 	contact_form('blue-light');
 	get_footer();
 ?>

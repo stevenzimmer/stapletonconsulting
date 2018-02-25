@@ -9,3 +9,14 @@
 		}
 	}
 }
+
+.case-studies {
+
+	&-bg {
+		height: 370px;
+
+		&-overlay {
+			background-position: center;
+		}
+	}
+}

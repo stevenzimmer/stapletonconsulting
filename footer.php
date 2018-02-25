@@ -27,26 +27,23 @@
 				<p class="mb40 footer-header ls uc bold text-orange">company</p>
 				<ul class="mb40">
 
-					<?php
-						$pages = new WP_Query( array(
 
-								'post_type' => 'page',
-								'posts_per_page' => -1
-							)
-						);
-
-						while ( $pages->have_posts()) :
-							$pages->the_post();
-					?>
 					<li>
-						<a href="<?php the_permalink() ?>">
-							<?php the_title(); ?>
+						<a href="/">
+							Home
 						</a>
 					</li>
-					<?php
-						endwhile;
-						wp_reset_postdata();
-					?>
+					<li>
+						<a href="/contact-us/">
+							Contact
+						</a>
+					</li>
+					<li>
+						<a href="/about-us/">
+							About
+						</a>
+					</li>
+
 				</ul>
 			</div>
 			<div class="col-sm-4">
@@ -55,7 +52,7 @@
 					<?php
 						$articles = new WP_Query( array(
 								'post_type' => 'articles',
-								'posts_per_page' => -1
+								'posts_per_page' => 6
 							)
 						);
 
