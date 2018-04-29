@@ -1,5 +1,7 @@
 <?php
-// Articles Archive page
+/**
+ * Template Name: Articles Archive
+ */
 get_header();
 ?>
 
@@ -8,8 +10,8 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h1 class="mb40 text-white">Articles</h1>
-				<p class="mb20 text-white">Our personal insight on stuff and things.</p>
+				<h1 class="mb40 text-white"><?php the_field('header'); ?></h1>
+				<p class="mb20 text-white"><?php the_field('paragraph'); ?></p>
 				<a href="#contact" class="btn btn-outline btn-outline-orange">contact us</a>
 			</div>
 		</div>
@@ -19,11 +21,13 @@ get_header();
 <section class="section-half bg-orange articles-archive-categories">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-1 col-xs-3">
-				<!-- <a href="#" class="text-blue-dark">Previous</a> -->
-			</div>
-			<div class="col-sm-10 col-xs-6">
+			<div class="col-sm-12">
 				<div class="row">
+					<div class="col-sm-2">
+						<div class="articles-archive-categories-view">
+							View All
+						</div>
+					</div>
 
 				<?php
 
@@ -38,7 +42,7 @@ get_header();
 					foreach ($categories as $category) :
 
 				?>
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<div class="row">
 							<div class="articles-archive-categories-item">
 
@@ -55,9 +59,6 @@ get_header();
 				?>
 
 				</div>
-			</div>
-			<div class="col-sm-1 col-xs-3">
-
 			</div>
 		</div>
 	</div>

@@ -3,11 +3,23 @@
 	&-body {
 
 		p {
-			font-size: 16px;
+			font-size: 18px;
+		}
+
+		ul,ol {
+			margin-bottom: 20px;
+			font-size: 18px;
+
+			li {
+				margin-bottom: 20px;
+			}
 		}
 
 		&-quote {
-			background-image: url(/wp-content/uploads/theme-graphics/about-us-success-bg.jpg);
+
+			p {
+				font-size: 24px;
+			}
 		}
 	}
 

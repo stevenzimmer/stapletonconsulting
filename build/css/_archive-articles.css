@@ -13,14 +13,21 @@
 			text-decoration: none;
 		}
 
-		&-item {
-			width: 100%;
+		&-view {
 			opacity: .4;
 
-			&.active,&:hover {
+			a {
 				opacity: 1;
+			}
+		}
+
+		&-item {
+			width: 100%;
+
+			&.active,&:hover {
 
 				td {
+
 					a {
 						border-bottom: 1px solid;
 					}

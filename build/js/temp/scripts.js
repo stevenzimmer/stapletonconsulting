@@ -10695,8 +10695,7 @@ var Forms = function () {
 		}
 	}, {
 		key: 'form_handler',
-		value: function form_handler(e) {
-			e.preventDefault();
+		value: function form_handler() {
 
 			this.form.remove();
 
@@ -10704,8 +10703,7 @@ var Forms = function () {
 		}
 	}, {
 		key: 'form_handler_leads',
-		value: function form_handler_leads(e) {
-			e.preventDefault();
+		value: function form_handler_leads() {
 
 			this.form_leads.remove();
 

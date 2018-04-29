@@ -13,6 +13,7 @@ Version: 1.0
 @import './build/css/_mixins.css';
 @import './build/css/_text.css';
 @import './build/css/_positioning.css';
+@import './build/css/_categories.css';
 @import './build/css/_margins.css';
 @import './build/css/_sprite.css';
 @import './build/css/_icons.css';
@@ -22,6 +23,7 @@ Version: 1.0
 @import './build/css/_background.css';
 @import './build/css/_navigation.css';
 @import './build/css/_homepage.css';
+@import './build/css/_quotes.css';
 @import './build/css/_about.css';
 @import './build/css/_contact.css';
 @import './build/css/_leads.css';

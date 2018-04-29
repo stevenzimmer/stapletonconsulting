@@ -63,7 +63,7 @@
 								<a href="#contact" class="btn btn-outline btn-outline-orange">contact us</a>
 							</td>
 							<td>
-								<a href="/services" class="btn btn-solid btn-solid-orange">see all services</a>
+								<a href="/services" class="btn btn-solid btn-solid-orange">view services</a>
 							</td>
 						</tr>
 					</table>
@@ -115,9 +115,20 @@
 
 			<div class="col-sm-3 col-xs-6">
 				<div class="pillars-item mb40">
-					<span class="icon-small owl-icon owl-icon--pillars-<?php echo $icon; ?>"></span>
-					<h3 class="mb20 text-blue-dark"><?php echo $title; ?></h3>
-					<p><?php echo $paragraph; ?></p>
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3">
+							<div class="pillars-item-icon relative">
+								<span class="icon-small owl-icon owl-icon--pillars-<?php echo $icon; ?>"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="pillars-item-text">
+						<h3 class="mb20 text-blue-dark"><?php echo $title; ?></h3>
+						<p><?php echo $paragraph; ?></p>
+					</div>
+
+
 				</div>
 			</div>
 
@@ -151,7 +162,7 @@
 						$clients->the_post();
 				?>
 
-					<div class="col-sm-4">
+					<div class="col-md-4">
 						<div class="mb40 clients-logo" data-bg="<?php the_post_thumbnail_url(); ?>">
 							<a href="<?php the_permalink(); ?>">
 								<img alt="<?php the_title() ?> logo" class="mb40" height="50" src="<?php echo get_field('client_logo_white'); ?>">
@@ -172,7 +183,7 @@
 </section>
 
 <section class="services">
-	<div class="col-md-4">
+	<div class="col-lg-4">
 		<div class="row relative">
 			<div class="services-left-bg bg-cover absolute position"></div>
 			<div class="relative bg services-left">
@@ -185,7 +196,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-lg-8">
 		<div class="row text-center">
 			<?php
 				$services = new WP_Query( array(
@@ -198,21 +209,36 @@
 						$services_title_lowercase = strtolower(get_the_title());
 						$services_icon = str_replace(' ', '_', $services_title_lowercase);
 			?>
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-6">
 				<div class="row">
 					<a href="<?php the_permalink(); ?>">
-						<div class="services-item relative">
+						<div class="services-item relative bg-white">
 							<div class="services-item-overlay-bg position absolute"></div>
 							<div class="services-item-overlay absolute position section-half"></div>
 
 							<div class="services-item-icon absolute">
-								<span class="owl-icon icon-small owl-icon--<?php echo $services_icon  ?>_gold"></span>
+								<div class="col-sm-6 col-sm-offset-3">
+									<div class="">
+										<div class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
+											<div class="">
+												<span class="owl-icon icon-small owl-icon--<?php echo $services_icon  ?>_gold"></span>
+											</div>
+
+										</div>
+										<div class="clearfix"></div>
+
+									</div>
+
+								</div>
+								<div class="clearfix"></div>
 							</div>
 
 							<div class="services-item-text absolute">
-								<h3 class="mb40"><?php the_title(); ?></h3>
+								<h3 class="mb20"><?php the_title(); ?></h3>
 								<div class="services-item-text-para">
 									<p><?php the_excerpt(); ?></p>
+								</div>
+								<div class="services-item-text-arrow text-left">
 									<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
 								</div>
 							</div>
@@ -294,7 +320,7 @@
 
 
 <?php
-	quotes('orange');
+	quotes('orange', 'quotes-white');
 	contact_form('blue-light');
 	get_footer();
 ?>

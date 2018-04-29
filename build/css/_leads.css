@@ -32,6 +32,10 @@
 			background-image: url(/wp-content/uploads/theme-graphics/leads-hero-bg.jpg);
 		}
 
+		&-overlay {
+			background-color: rgba(0,0,0,.4);
+		}
+
 		&-left {
 
 			ul {
@@ -66,19 +70,11 @@
 
 	&-section {
 
-		@mixin min992 {
-			padding: 110px 0;
-
-			&-bg {
-				background-image: url(/wp-content/uploads/theme-graphics/leads-section-bg.jpg);
-				background-position: -150px 0;
-			}
-		}
-
-
-
-
 		&-bottom {
+
+			&-icon {
+				height: 100px;
+			}
 
 			p {
 				font-size: 16px;

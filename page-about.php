@@ -6,8 +6,8 @@ get_header();
 page_hero(
 		array(
 			'type' => strtolower( str_replace(' ', '-', get_the_title()) ),
-			'title' => get_the_title(),
-			'subtitle' => 'Our Mission is to help companies make smarter business decisions so they can win in their markets.',
+			'title' => get_field('header'),
+			'subtitle' => get_field('paragraph'),
 			'ctas' => array(
 				array(
 					'text' => 'contact us',
@@ -23,27 +23,15 @@ page_hero(
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h2 class="mb40 text-white">Product-Driven, People-Centric</h2>
+				<h2 class="mb40 text-white"><?php the_field('product_driven_title') ?></h2>
 				<div class="col-sm-5">
 					<div class="row">
-						<p class="mb20">
-							Our product pioneering offers our clients a unique advantage in the world of digital transformation across marketing, digital, and strategy consulting. We know that by helping clients make informed decisions prior to execution, they accelerate the perceived value of their products to their customers and can evolve quickly in a fast-paced world.
-						</p>
-						<p>
-							This requires more than only focusing on operation efficiencies or just considering consumer loyalty. We believe it takes a team who can offer a integrated view to create mutual advantage and help alleviate the simultaneous struggle for savings, growth, and relevance in today’s market.
-						</p>
+						<?php the_field('product_driven_left'); ?>
 					</div>
 				</div>
 				<div class="col-sm-5 col-sm-offset-1">
 					<div class="row">
-						<p class="mb20">
-							We help clients thrive in this new world because we’ve been helping to create it, both professionally and personally. Our customer-centric view and ability to reimagine offer practical and significant advantages in this rapidly changing market.
-						</p>
-						<p>
-							who can offer a integrated view to create mutual advantage and help alleviate the simultaneous struggle for savings, growth, and relevance in today’s market.
-
-							We help clients thrive in this new world because we’ve been helping to create it, both professionally and personally. Our customer-centric view and ability to reimagine offer practical and significant advantages in this rapidly changing market.
-						</p>
+						<?php the_field('product_driven_right'); ?>
 					</div>
 				</div>
 			</div>
@@ -51,25 +39,23 @@ page_hero(
 		</div>
 	</div>
 </section>
-<section class="section text-center about-us-success relative text-white">
-	<div class="absolute position page-hero-bg about-us-success-bg"></div>
+<section class="section text-center about-us-success relative text-white bg-blue-dark">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
 				<h2 class="mb40">
-					“Success is informed by customers’ perceptions through data and proprietary methods inspired by four consumer-centric principals.”
+					<?php the_field('quote_paragraph'); ?>
 				</h2>
 				<h5 class="ls uc">
-					michael stapleton
+					<?php the_field('quote_name'); ?>
 				</h5>
 				<h6 class="ls uc">
-					ceo - founder
+					<?php the_field('quote_title'); ?>
 				</h6>
 			</div>
 		</div>
 	</div>
 </section>
-<?php our_process(); ?>
 
 <section class="section bg-blue-light clients relative">
 	<div class="clients-bg position absolute bg-cover"></div>
@@ -95,7 +81,7 @@ page_hero(
 				?>
 
 					<div class="col-sm-4">
-						<div class="mb40">
+						<div class="mb40 clients-logo" data-bg="<?php the_post_thumbnail_url(); ?>">
 							<a href="<?php the_permalink(); ?>">
 								<img alt="<?php the_title() ?> logo" class="mb40" height="50" src="<?php echo get_field('client_logo_white'); ?>">
 							</a>
@@ -114,10 +100,13 @@ page_hero(
 	</div>
 </section>
 
-
 <?php
 
+
+	our_process();
 	get_started('light');
+
+
 
 	$arr = array(
 		'post_type' => 'consultants',
@@ -140,6 +129,11 @@ page_hero(
 
 		$name = explode(' ', get_the_title());
 		$f_name = lcfirst($name[0]);
+
+		$facebook = get_field('consultant_facebook');
+		$twitter = get_field('consultant_twitter');
+		$linkedin = get_field('consultant_linkedin');
+		$email = get_field('consultant_email');
 
 		$bg = '';
 		$push = '';
@@ -171,15 +165,30 @@ page_hero(
 
 							<div class="row">
 								<div class="col-sm-4">
-									<a href="#" class="btn btn-outline btn-outline-orange mb40">contact <?php echo $f_name; ?></a>
+									<div class="row">
+										<a href="mailto:<?php echo $email ?>" class="btn btn-outline btn-outline-orange mb40">contact <?php echo $f_name; ?></a>
+									</div>
+
 								</div>
 
 								<div class="col-sm-8">
-									<span class="icon-small owl-icon owl-icon--facebook"></span>
+									<div class="row">
 
-									<span class="icon-small owl-icon owl-icon--twitter"></span>
-
-									<span class="icon-small owl-icon owl-icon--linkedin"></span>
+										<div class="col-sm-3 text-center">
+											<div class="social-icon">
+												<a href="<?php echo $twitter ?>">
+													<span class="icon-small owl-icon owl-icon--twitter"></span>
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="social-icon">
+												<a href="<?php echo $linkedin ?>">
+													<span class="icon-small owl-icon owl-icon--linkedin"></span>
+												</a>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 
@@ -257,6 +266,8 @@ page_hero(
 				<div class="row">
 				<?php
 
+					$i = 1;
+
 					$articles = new WP_Query(
 						array(
 							'post_type' => 'articles',
@@ -278,7 +289,12 @@ page_hero(
 							</div>
 						</div>
 					</div>
+
+					<?php if ( $i % 2 == 0 ): ?>
+						<div class="clearfix"></div>
+					<?php endif ?>
 				<?php
+					$i++;
 					endwhile;
 					wp_reset_postdata();
 				?>

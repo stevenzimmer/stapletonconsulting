@@ -17,6 +17,7 @@ $wyg_bg = get_field('wyg_bg');
 ?>
 <header class="relative leads-hero">
 	<div class="position absolute bg-cover leads-hero-bg parallax"></div>
+	<div class="position absolute leads-hero-overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
@@ -30,13 +31,21 @@ $wyg_bg = get_field('wyg_bg');
 					</div>
 				</div>
 				<div class="row text-center mb40">
-					<h1 class="text-orange"><?php echo $hero_header; ?></h1>
+					<h1 class="text-orange"><?php the_title(); ?></h1>
 				</div>
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="">
-							<div class="leads-hero-left mt20">
-								<?php echo $hero_paragraph; ?>
+							<div class="leads-hero-left mt20 text-white">
+								<?php
+									if (have_posts()) :
+										while (have_posts()) :
+											the_post();
+
+							 				the_content();
+							 			endwhile;
+							 		endif;
+							 	?>
 							</div>
 						</div>
 					</div>
@@ -70,70 +79,89 @@ $wyg_bg = get_field('wyg_bg');
 	</div>
 </header>
 
-<section class="bg-blue-light leads-section relative">
-	<div class="leads-section-bg position absolute bg-cover"
+<section class="bg-blue-light leads-section section">
+	<div class="container">
 
-		<?php
-			if (!empty($wyg_bg)) :
-		?>
-			style="background-image: url(<?php echo $wyg_bg; ?>)"
-		<?php
-			endif;
-		?>
-
-	></div>
-	<div class="container relative">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="row section">
-					<div class="col-md-6"></div>
-					<div class="col-md-6">
-						<h2 class="text-white mb40"><?php echo $wyg_title ?></h2>
-						<?php echo $wyg_paragraph ?>
-					</div>
+			<div class="col-md-6">
+				<img src="<?php echo $wyg_bg; ?>" class="img-responsive">
+			</div>
+			<div class="col-md-5 col-md-offset-1">
+
+				<h2 class="text-white mb40 mt40 subheader"><?php echo $wyg_title ?></h2>
+				<div class="text-white mb40">
+					<?php echo $wyg_paragraph ?>
 				</div>
 			</div>
 		</div>
+
 	</div>
 </section>
+
 <section class="bg-blue-light section-half leads-section-bottom">
 	<div class="container-fluid">
 		<div class="row text-center">
+
 			<div class="col-sm-2 col-sm-offset-1">
-				<div class=" mb40">
-					<span class="icon-small owl-icon owl-icon--document"></span>
-					<p class="text-white ls uc bold">Report detailing the 7-10 primary reasons you win or lose deals</p>
+				<div class="row mb20">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="leads-section-bottom-icon">
+							<span class="icon-small owl-icon owl-icon--document"></span>
+						</div>
+					</div>
 				</div>
+				<p class="text-white ls uc bold">Report detailing the 7-10 primary reasons you win or lose deals</p>
 			</div>
+
 			<div class="col-sm-2">
-				<div class=" mb40">
-					<span class="icon-small owl-icon owl-icon--thumbsup"></span>
-					<p class="text-white ls uc bold">List of your top competitors, highlighting and comparing their strengths and weaknesses</p>
+				<div class="row mb20">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="leads-section-bottom-icon">
+							<span class="icon-small owl-icon owl-icon--thumbsup"></span>
+						</div>
+					</div>
 				</div>
+				<p class="text-white ls uc bold">List of your top competitors, highlighting and comparing their strengths and weaknesses</p>
 			</div>
+
 			<div class="col-sm-2">
-				<div class=" mb40">
-					<span class="icon-small owl-icon owl-icon--headphone"></span>
-					<p class="text-white ls uc bold">Audio recordings of the win-loss interviews</p>
+				<div class="row mb20">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="leads-section-bottom-icon">
+							<span class="icon-small owl-icon owl-icon--headphone"></span>
+						</div>
+					</div>
 				</div>
+				<p class="text-white ls uc bold">Audio recordings of the win-loss interviews</p>
 			</div>
+
 			<div class="col-sm-2">
-				<div class=" mb40">
-					<span class="icon-small owl-icon owl-icon--hourglass"></span>
-					<p class="text-white ls uc bold">Tactical recommendations on how you can increase win rates right away</p>
+				<div class="row mb20">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="leads-section-bottom-icon">
+							<span class="icon-small owl-icon owl-icon--hourglass"></span>
+						</div>
+					</div>
 				</div>
+				<p class="text-white ls uc bold">Tactical recommendations on how you can increase win rates right away</p>
 			</div>
+
 			<div class="col-sm-2">
-				<div class=" mb40">
-					<span class="icon-small owl-icon owl-icon--mountain"></span>
-					<p class="text-white ls uc bold">Strategy for how to grow your business over the mid-to-long-term</p>
+				<div class="row mb20">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="leads-section-bottom-icon">
+							<span class="icon-small owl-icon owl-icon--mountain"></span>
+						</div>
+					</div>
 				</div>
+				<p class="text-white ls uc bold">Strategy for how to grow your business over the mid-to-long-term</p>
+
 			</div>
 		</div>
 	</div>
 </section>
 <?php
-	get_template_part('partials/quotes');
+	quotes();
 ?>
 <section class="bg-blue-light section contact-form">
 	<div class="container">
@@ -182,7 +210,7 @@ $wyg_bg = get_field('wyg_bg');
 
 					<div class="sc-form-button text-center">
 						<div class="sc-form-button-align">
-							<input type="submit" name="sc_form_button" id="sc_form_button" class="btn btn-solid btn-solid-orange" value="download & submit">
+							<input type="submit" name="sc_form_button" id="sc_form_button" class="btn btn-solid btn-solid-orange" value="submit">
 						</div>
 					</div>
 				</form>

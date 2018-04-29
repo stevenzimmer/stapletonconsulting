@@ -13,7 +13,7 @@ add_action('rest_api_init', 'sc_register_search');
 function sc_search_results($data) {
 
 	$sc_posts = new WP_Query( array(
-			'post_type' => array('articles','post', 'page', 'services'),
+			'post_type' => array('articles','post', 'page', 'services', 'case-studies'),
 			'posts_per_page' => -1,
 			's' => sanitize_text_field($data['term'])
 		)
@@ -26,9 +26,7 @@ function sc_search_results($data) {
 		array_push( $results, array(
 				'title' => get_the_title(),
 				'permalink' => get_the_permalink(),
-				'post_type' => get_post_type(),
-				'content' => get_the_content(),
-				'excerpt' => get_the_excerpt()
+				'post_type' => get_post_type()
 			)
 		);
 	endwhile;

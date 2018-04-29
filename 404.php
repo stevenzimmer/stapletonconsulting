@@ -19,7 +19,7 @@ get_header();
 						<a href="/services" class="btn btn-outline btn-outline-orange">services</a>
 					</div>
 					<div class="col-sm-4">
-						<a href="/leads" class="btn btn-solid btn-solid-orange">request demo</a>
+						<a href="/#contact" class="btn btn-solid btn-solid-orange">request demo</a>
 					</div>
 					<div class="col-sm-4">
 						<a href="/contact-us" class="btn btn-outline btn-outline-orange">contact us</a>

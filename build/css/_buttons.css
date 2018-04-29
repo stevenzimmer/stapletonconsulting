@@ -23,6 +23,11 @@
 		&-blue {
 			border-color: rgb($blue_dark);
 			color: rgb($blue_dark);
+
+			&:hover {
+				background-color: rgb($blue_dark);
+				color: $white;
+			}
 		}
 
 		&-white {

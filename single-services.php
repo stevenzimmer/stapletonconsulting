@@ -19,7 +19,7 @@ while (have_posts()) :
 			'ctas' => array(
 				array(
 					'link' => '#contact',
-					'text' => 'request quote',
+					'text' => 'contact us',
 					'btn_color' => 'blue'
 				)
 			)
@@ -31,7 +31,19 @@ while (have_posts()) :
 	<div class="container">
 		<div class="col-sm-10 col-sm-offset-1">
 			<div class="row text-center">
-				<span class="owl-icon icon-small owl-icon--<?php echo $services_icon_wash; ?>_gold"></span>
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3">
+							<div class="row">
+								<div class="col-sm-8 col-sm-offset-2">
+									<div class="services-single-icon">
+										<span class="owl-icon icon-small owl-icon--<?php echo $services_icon_wash; ?>_gold"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<h2 class="text-blue-light">Deliverables</h2>
 			</div>
 
@@ -74,28 +86,35 @@ while (have_posts()) :
 				<div class="col-sm-6 mb40">
 					<div class="row">
 						<a href="<?php the_permalink(); ?>">
-							<div class="services-item">
-								<div class="services-item-inner relative text-center">
-									<span class="owl-icon icon-small owl-icon--<?php echo $services_icon_wash;  ?>_gold"></span>
-									<h3><?php the_title(); ?></h3>
-								</div>
-								<div class="services-item-overlay-bg position absolute"></div>
-								<div class="services-item-overlay absolute position section-half">
-									<div class="col-sm-10 col-sm-offset-1">
-										<div class="services-item-overlay-wrapper relative">
-											<div class="full-width services-item-overlay-wrapper-title relative">
-												<h3 class="mb20"><?php the_title() ?></h3>
+							<div class="services-item relative bg-white">
+							<div class="services-item-overlay-bg position absolute"></div>
+							<div class="services-item-overlay absolute position section-half"></div>
+
+							<div class="services-item-icon absolute">
+								<div class="col-sm-6 col-sm-offset-3">
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<div class="row">
+												<span class="owl-icon icon-small owl-icon--<?php echo $services_icon_wash;  ?>_gold"></span>
 											</div>
-											<div class="full-width services-item-overlay-wrapper-excerpt absolute">
-												<p><?php the_excerpt(); ?></p>
-											</div>
-											<div class="full-width services-item-overlay-wrapper-arrow absolute">
-												<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
-											</div>
+
 										</div>
 									</div>
 								</div>
+								<div class="clearfix"></div>
+
 							</div>
+
+							<div class="services-item-text absolute">
+								<h3 class="mb20 text-center"><?php the_title(); ?></h3>
+								<div class="services-item-text-para">
+									<p><?php the_excerpt(); ?></p>
+								</div>
+								<div class="services-item-text-arrow">
+									<p><img width="30" src="/wp-content/uploads/theme-graphics/arrow-right.png"></p>
+								</div>
+							</div>
+						</div>
 						</a>
 					</div>
 				</div>

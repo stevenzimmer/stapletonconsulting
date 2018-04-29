@@ -1,14 +1,26 @@
 
 .archive-services {
 
-	&-sub {
-		padding: 160px 0;
+	&-hero {
+		padding: 120px 0 80px;
 
 		&-bg {
-			background-image: url(/wp-content/uploads/theme-graphics/archive-services-sub-bg.jpg);
+			background-image: url(/wp-content/uploads/theme-graphics/archive-services-hero-bg.jpg);
+		}
+	}
+
+	&-grid {
+
+		.services-container {
+
+			@mixin min768 {
+				width: 960px;
+			}
 		}
 	}
 }
+
+
 
 .case-studies {
 
@@ -17,6 +29,16 @@
 
 		&-overlay {
 			background-position: center;
+		}
+	}
+}
+
+.fundamentals {
+
+	&-item {
+
+		&-icon {
+			height: 100px;
 		}
 	}
 }

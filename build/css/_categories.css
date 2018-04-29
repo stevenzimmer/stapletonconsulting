@@ -1,0 +1,16 @@
+.category-archive {
+
+	&-view {
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	&-item {
+
+		p {
+			opacity: .4;
+		}
+	}
+}

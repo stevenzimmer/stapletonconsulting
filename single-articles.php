@@ -40,11 +40,46 @@ while (have_posts()) :
 <section class="section article-body relative">
 	<?php the_content(); ?>
 
+	<div class="container">
+		<div class="row mt40">
+			<div class="col-sm-8 col-sm-offset-2">
+				<div class="row">
+					<div class="col-sm-3">
+						<p>Share this article:</p>
+					</div>
+					<div class="col-sm-2">
+						<div class="social-icon">
+							<a href="https://twitter.com/intent/tweet?text=<?php echo urlencode(get_the_title()); ?>+<?php echo get_permalink(); ?>">
+								<span class="icon-small owl-icon owl-icon--twitter"></span>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="social-icon">
+							<a href="https://www.facebook.com/sharer.php?s=100&p[url]=<?php echo urlencode(get_permalink());; ?>">
+								<span class="icon-small owl-icon owl-icon--facebook"></span>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="social-icon">
+							<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>&title=<?php the_title(); ?>">
+								<span class="icon-small owl-icon owl-icon--linkedin"></span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
 </section>
+
 
 <section class="bg-orange section-half">
 	<div class="text-center">
-		<h2 class="text-white mb40">Related Articles</h2>
+		<h2 class="text-white mb40">Recent Articles</h2>
 	</div>
 	<div class="container">
 		<div class="row">

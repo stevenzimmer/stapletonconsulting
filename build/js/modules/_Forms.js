@@ -13,8 +13,7 @@ class Forms {
 		this.form_leads.on('submit', this.form_handler_leads.bind(this));
 	}
 
-	form_handler(e) {
-		e.preventDefault();
+	form_handler() {
 
 		this.form.remove();
 
@@ -22,8 +21,7 @@ class Forms {
 
 	}
 
-	form_handler_leads(e) {
-		e.preventDefault();
+	form_handler_leads() {
 
 		this.form_leads.remove();
 

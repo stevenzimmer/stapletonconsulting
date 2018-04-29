@@ -7,10 +7,10 @@
 		// Enqueue Theme Scripts
  		wp_deregister_script( 'jquery' );
 
- 		wp_enqueue_script( 'scripts', get_template_directory_uri() . '/prod/js/scripts.min.js', array(), '1.0', true );
+ 		wp_enqueue_script( 'scripts', get_template_directory_uri() . '/prod/js/scripts.min.js', array(), '1.1', true );
 
  		// Enqueue Theme Styles
-		wp_enqueue_style( 'style', get_template_directory_uri() . '/prod/css/style.min.css', array(), '1.0' );
+		wp_enqueue_style( 'style', get_template_directory_uri() . '/prod/css/style.min.css', array(), '1.7' );
 
 		wp_localize_script('scripts', 'sc_data', array(
 				'root_url' => get_site_url(),
@@ -167,7 +167,7 @@
 					<div class="col-sm-2 col-sm-offset-1">
 						<div class="sc-form-button">
 							<div class="sc-form-button-align">
-								<input type="submit" name="sc_form_button" id="sc_form_button" class="btn btn-outline
+								<input value="submit" type="submit" name="sc_form_button" id="sc_form_button" class="btn btn-outline
 								<?php
 									if ($color !== 'orange') :
 										echo 'btn-outline-orange';
@@ -229,9 +229,20 @@
 
 					<div class="col-sm-3">
 						<div class="process-item mb40">
-							<span class="icon-small owl-icon owl-icon--process-<?php echo $icon ?>"></span>
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+								<div class="row">
+									<div class="process-item-icon">
 
-							<p class="ls uc bold"><?php echo $icon; ?></p>
+										<span class="icon-small owl-icon owl-icon--process-<?php echo $icon ?>"></span>
+									</div>
+								</div>
+							</div>
+							<div class="process-item-text">
+								<p class="ls uc bold"><?php echo $icon; ?></p>
+							</div>
+							</div>
+
 						</div>
 					</div>
 
@@ -259,7 +270,7 @@
 <?php
 	}
 
-	function quotes($bg = '') {
+	function quotes($bg = '', $icon = 'quotes') {
 ?>
 
 <section class="section quote bg-<?php echo $bg ?>">
@@ -267,9 +278,14 @@
 		<div id="quote-carousel" class="carousel quote-carousel" data-ride="carousel">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="quote-symbol text-center mb40">
-						<span class="icon-small owl-icon owl-icon--quotes "></span>
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3">
+							<div class="quote-symbol">
+								<span class="icon-small owl-icon owl-icon--<?php echo $icon ?>"></span>
+							</div>
+						</div>
 					</div>
+
 
 					<div class="row mb40">
 						<div class="col-sm-10 col-sm-offset-1">
@@ -294,7 +310,7 @@
 
 							?>
 								<div class="item <?php if ($i == 0) : echo 'active'; endif; ?> absolute">
-									<div class="quote-text mb40">
+									<div class="quote-text">
 										<p>
 											<?php the_content(); ?>
 										</p>
@@ -310,8 +326,10 @@
 							</div>
 						</div>
 					</div>
-
-					<!-- Indicators -->
+				</div>
+				<div class="col-sm-12">
+					<div class="row">
+						<!-- Indicators -->
 					<div class="carousel-indicators quote-carousel-indicators">
 
 						<?php
@@ -340,8 +358,11 @@
 												</div>
 												<div class="col-xs-8">
 													<div class="row">
-														<p><?php the_title(); ?></p>
-														<span class="bold"><?php the_excerpt(); ?></span>
+														<div class="quote-citation-text">
+															<p class="quote-citation-name"><?php the_title(); ?></p>
+															<p class="bold quote-citation-title"><?php the_excerpt(); ?></p>
+														</div>
+
 													</div>
 												</div>
 												<div class="clearfix"></div>
@@ -358,7 +379,10 @@
 							wp_reset_postdata();
 						?>
 					</div>
+					</div>
+
 				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
@@ -381,5 +405,15 @@
 
 	remove_filter( 'the_content', 'wpautop' );
 	remove_filter( 'the_excerpt', 'wpautop' );
+
+	// Add Favicon to site head section
+	function favicon_add() {
+
+			// Global Favicon
+			echo "<link rel='Shortcut Icon' type='image/x-icon' href='/wp-content/uploads/theme-graphics/white-on-navy-ico.png' />";
+
+
+	}
+	add_action('wp_head', 'favicon_add');
 
 ?>

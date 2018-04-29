@@ -1,0 +1,102 @@
+
+.quote {
+
+	&-text {
+		color: rgba($blue_light,.8);
+		line-height: 24px;
+		height: 100px;
+	}
+
+	&-citation {
+		cursor: pointer;
+		opacity: .2;
+		transition: opacity .3s ease-in-out;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&-text {
+			padding: 10px 0 10px 20px;
+		}
+
+		&-name {
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+		&-title {
+			font-size: 14px;
+			line-height: 16px;
+		}
+	}
+
+	&-symbol {
+		height: 50px;
+		width: 50px;
+		margin: 0 auto 20px;
+	}
+
+	&-carousel {
+
+		&-indicators {
+			width: 100%;
+			position: relative;
+			bottom: 0;
+			left: 0;
+			margin: 0;
+			width: 100%;
+			text-align: left;
+
+			.active {
+				width:inherit;
+				height: inherit;
+
+				.quote {
+
+					&-citation {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		&-inner {
+
+			.item {
+				opacity: 0;
+				transition: opacity .3s ease-in-out;
+				top: 0;
+				display: block;
+				position: absolute;
+				height: 160px;
+
+				@mixin min768 {
+					height: auto;
+				}
+
+				&.active {
+					opacity: 1;
+					position: relative;
+				}
+			}
+		}
+	}
+
+	&.bg-orange {
+
+		.quote {
+
+			&-text {
+				color: rgb($rgb_white);
+			}
+
+			&-citation {
+
+				p,span {
+					color: rgb($blue_dark);
+				}
+			}
+		}
+	}
+}

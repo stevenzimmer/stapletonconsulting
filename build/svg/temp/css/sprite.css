@@ -3,7 +3,7 @@
 
 
 		.owl-icon {
-			background-image: url('/wp-content/themes/stapleton/prod/sprite/sprite-d2b0894b.svg');
+			background-image: url('/wp-content/themes/stapleton/prod/sprite/sprite-b8490f0a.svg');
 			display: inline-block;
 		}
 
@@ -11,14 +11,14 @@
 	.owl-icon--buyer_persona_development_gold {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 0 0;
+		background-position: 15.41006522430343% 0;
 	}
 
 
 	.owl-icon--buyer_persona_development_navy {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 77.05032612151717% 0;
+		background-position: 77.05032612151717% 33.333333333333336%;
 	}
 
 
@@ -74,14 +74,14 @@
 	.owl-icon--email {
 		width: 335.77px;
 		height: 327.68px;
-		background-position: 97.53115356574465% 21.307772929744022%;
+		background-position: 97.53115356574465% 43.07579261554585%;
 	}
 
 
 	.owl-icon--facebook {
 		width: 335.77px;
 		height: 327.68px;
-		background-position: 97.53115356574465% 16.641508789118127%;
+		background-position: 97.53115356574465% 38.40952847491997%;
 	}
 
 
@@ -130,165 +130,193 @@
 	.owl-icon--instagram {
 		width: 335.77px;
 		height: 327.68px;
-		background-position: 97.53115356574465% 7.308980507866346%;
+		background-position: 97.53115356574465% 47.74205675617174%;
+	}
+
+
+	.owl-icon--linkedin {
+		width: 335.77px;
+		height: 327.68px;
+		background-position: 97.53115356574465% 33.74326433429408%;
+	}
+
+
+	.owl-icon--linkedin-white {
+		width: 335.77px;
+		height: 327.68px;
+		background-position: 97.53115356574465% 24.4107360530423%;
+	}
+
+
+	.owl-icon--map-marker {
+		width: 360px;
+		height: 360px;
+		background-position: 97.83813977656537% 14.685550786838341%;
 	}
 
 
 	.owl-icon--market_sizing_gold {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 61.64026089721372% 33.333333333333336%;
+		background-position: 15.41006522430343% 66.66666666666667%;
 	}
 
 
 	.owl-icon--market_sizing_navy {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 61.64026089721372% 50%;
+		background-position: 30.82013044860686% 66.66666666666667%;
 	}
 
 
 	.owl-icon--market_sizing_white {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 0 66.66666666666667%;
+		background-position: 46.23019567291029% 66.66666666666667%;
 	}
 
 
 	.owl-icon--mountain {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 15.41006522430343% 66.66666666666667%;
+		background-position: 61.64026089721372% 66.66666666666667%;
 	}
 
 
 	.owl-icon--nps_programs_gold {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 30.82013044860686% 66.66666666666667%;
+		background-position: 77.05032612151717% 0;
 	}
 
 
 	.owl-icon--nps_programs_navy {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 46.23019567291029% 66.66666666666667%;
+		background-position: 77.05032612151717% 16.666666666666668%;
 	}
 
 
 	.owl-icon--nps_programs_white {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 61.64026089721372% 66.66666666666667%;
+		background-position: 0 0;
 	}
 
 
 	.owl-icon--phone {
 		width: 335.77px;
 		height: 327.68px;
-		background-position: 97.53115356574465% 25.97403707036991%;
+		background-position: 97.53115356574465% 19.74447191241641%;
 	}
 
 
 	.owl-icon--pillars-diamond {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 77.05032612151717% 16.666666666666668%;
+		background-position: 77.05032612151717% 66.66666666666667%;
 	}
 
 
 	.owl-icon--pillars-key {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 77.05032612151717% 33.333333333333336%;
+		background-position: 0 83.33333333333333%;
 	}
 
 
 	.owl-icon--pillars-lightbulb {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 77.05032612151717% 50%;
+		background-position: 15.41006522430343% 83.33333333333333%;
 	}
 
 
 	.owl-icon--pillars-lightning {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 77.05032612151717% 66.66666666666667%;
+		background-position: 30.82013044860686% 83.33333333333333%;
 	}
 
 
 	.owl-icon--positioning_statement_development_gold {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 0 83.33333333333333%;
+		background-position: 46.23019567291029% 83.33333333333333%;
 	}
 
 
 	.owl-icon--positioning_statement_development_navy {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 15.41006522430343% 83.33333333333333%;
+		background-position: 61.64026089721372% 83.33333333333333%;
 	}
 
 
 	.owl-icon--positioning_statement_development_white {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 30.82013044860686% 83.33333333333333%;
+		background-position: 77.05032612151717% 83.33333333333333%;
 	}
 
 
 	.owl-icon--pricing_strategy_gold {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 46.23019567291029% 83.33333333333333%;
+		background-position: 92.4603913458206% 0;
 	}
 
 
 	.owl-icon--pricing_strategy_navy {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 61.64026089721372% 83.33333333333333%;
+		background-position: 92.4603913458206% 16.666666666666668%;
 	}
 
 
 	.owl-icon--pricing_strategy_white {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 77.05032612151717% 83.33333333333333%;
+		background-position: 92.4603913458206% 33.333333333333336%;
 	}
 
 
 	.owl-icon--process-analysis {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 92.4603913458206% 0;
+		background-position: 92.4603913458206% 50%;
 	}
 
 
 	.owl-icon--process-execution {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 92.4603913458206% 16.666666666666668%;
+		background-position: 92.4603913458206% 66.66666666666667%;
 	}
 
 
 	.owl-icon--process-planning {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 92.4603913458206% 33.333333333333336%;
+		background-position: 92.4603913458206% 83.33333333333333%;
 	}
 
 
 	.owl-icon--process-strategy {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 92.4603913458206% 50%;
+		background-position: 77.05032612151717% 50%;
 	}
 
 
 	.owl-icon--quotes {
+		width: 525.94px;
+		height: 513.26px;
+		background-position: 99.99362724141872% 7.507379248004166%;
+	}
+
+
+	.owl-icon--quotes-white {
 		width: 525.94px;
 		height: 513.26px;
 		background-position: 99.99362724141872% 0;
@@ -298,21 +326,21 @@
 	.owl-icon--segmentation_targeting_gold {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 92.4603913458206% 83.33333333333333%;
+		background-position: 0 66.66666666666667%;
 	}
 
 
 	.owl-icon--segmentation_targeting_navy {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 0 100%;
+		background-position: 61.64026089721372% 50%;
 	}
 
 
 	.owl-icon--segmentation_targeting_white {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 92.4603913458206% 66.66666666666667%;
+		background-position: 61.64026089721372% 33.333333333333336%;
 	}
 
 
@@ -333,7 +361,7 @@
 	.owl-icon--twitter {
 		width: 335.77px;
 		height: 327.68px;
-		background-position: 97.53115356574465% 11.975244648492236%;
+		background-position: 97.53115356574465% 29.07700019366819%;
 	}
 
 
@@ -361,5 +389,5 @@
 	.owl-icon--win-loss_analysis_white {
 		width: 1075.94px;
 		height: 1050px;
-		background-position: 15.41006522430343% 0;
+		background-position: 0 100%;
 	}

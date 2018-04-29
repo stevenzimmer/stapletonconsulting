@@ -33,7 +33,7 @@ contact_form('orange');
 				<div class="col-sm-4">
 					<div class="row">
 						<div class="col-sm-4">
-							<div class="text-center mb20">
+							<div class="text-center social-icon mb20">
 								<span class="icon-small owl-icon owl-icon--phone"></span>
 							</div>
 						</div>
@@ -45,10 +45,10 @@ contact_form('orange');
 				<div class="col-sm-4">
 					<div class="row">
 						<div class="col-sm-5 text-center">
-							<div class=" mb20">
+							<div class="social-icon mb20">
 								<span class="icon-small owl-icon owl-icon--email"></span>
 							</div>
-							<a href="#">Email Us</a>
+							<a href="mailto:mstapleton@owlconsulting.com">Email Us</a>
 						</div>
 						<div class="clearfix"></div>
 
@@ -56,9 +56,15 @@ contact_form('orange');
 				</div>
 				<div class="col-sm-4">
 					<div class="row">
-						<p>Owl Consulting</p>
-						<p>1284 Vallejo</p>
-						<p>San Francisco, Ca 94109</p>
+						<div class="col-sm-12 text-center">
+							<div class="social-icon mb20">
+								<span class="icon-small owl-icon owl-icon--map-marker"></span>
+							</div>
+							<p>Owl Consulting</p>
+							<p>1284 Vallejo</p>
+							<p>San Francisco, Ca 94109</p>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -84,6 +90,11 @@ contact_form('orange');
 
 		$name = explode(' ', get_the_title());
 		$f_name = $name[0];
+
+		$facebook = get_field('consultant_facebook');
+		$twitter = get_field('consultant_twitter');
+		$linkedin = get_field('consultant_linkedin');
+		$email = get_field('consultant_email');
 
 		$bg = '';
 		$position_right = '';
@@ -115,17 +126,29 @@ contact_form('orange');
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="row">
-									<a href="#" class="btn btn-outline btn-outline-orange mb40">contact <?php echo $f_name; ?></a>
+									<a href="mailto:<?php echo $email ?>" class="btn btn-outline btn-outline-orange mb40">contact <?php echo $f_name; ?></a>
 								</div>
 
 							</div>
 
 							<div class="col-sm-7">
-								<span class="icon-small owl-icon owl-icon--facebook"></span>
+								<div class="row">
 
-								<span class="icon-small owl-icon owl-icon--twitter"></span>
-
-								<span class="icon-small owl-icon owl-icon--linkedin"></span>
+									<div class="col-sm-3">
+										<div class="social-icon">
+											<a href="<?php echo $twitter ?>">
+												<span class="icon-small owl-icon owl-icon--twitter"></span>
+											</a>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="social-icon">
+											<a href="<?php echo $linkedin ?>">
+												<span class="icon-small owl-icon owl-icon--linkedin"></span>
+											</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

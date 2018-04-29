@@ -25,6 +25,13 @@
 		}
 	}
 
+	&-single {
+
+		&-icon {
+			height: 100px;
+		}
+	}
+
 	&-deliverable {
 		padding: 40px 0;
 
